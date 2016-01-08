@@ -1,0 +1,61 @@
+<ion-view view-title="Dashi Go">
+  <ion-content scroll="false" padding="false">
+    <baidu-map options="mapOptions" class="baidumap" style="width: 100%; height: 100%;display: block;"></baidu-map>
+    <div id="console-bar"
+      style="background: rgba(16,16,26,0.85); text-align: center;
+      position: absolute; top: 0; overflow: hidden; padding: 10px 30px;
+      width: 100%; color: #ddd;" ng-class="{'hidden': hideFlag, 'show': !hideFlag}">
+      <p style="color: #FF9C26; font-size: 39px; margin: 20px 0;">00:08:33</p>
+      <p>时长</p>
+      <div class="row" style="border-top: 1px solid #666; margin-top: 10px;">
+        <div class="col">
+          <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
+          <span style="font-size: 6px;">速度<br>（km/h）</span>
+        </div>
+        <div class="col" style="border-left: 1px solid #666; border-right: 1px solid #666; ">
+          <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
+          <span style="font-size: 6px;">距离<br>（km）</span>
+        </div>
+        <div class="col">
+          <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
+          <span style="font-size: 6px;">热量<br>（kcall）</span>
+        </div>
+      </div>
+    </div>
+    <div id="toggle-detail-btn" ng-class="{'hidden': hideFlag, 'show': !hideFlag}" ng-click="toggleDetail()"
+         style="height: 20px; text-align: center; background-color: #888; position: absolute;
+      width: 100%; color: #eee; font-size: 20px; line-height: 20px;">
+      <i id="toggle-detail-btn-icon" ng-class="{'hidden': hideFlag, 'show': !hideFlag}" class="ion-chevron-down"></i>
+    </div>
+    <style>
+      #console-bar.show {
+        height: 180px;
+        transition: height 0.5s;
+      }
+      #console-bar.hidden {
+        height: 90px;
+        transition: height 0.5s;
+      }
+      #toggle-detail-btn.show {
+        top: 180px;
+        transition: top 0.5s;
+      }
+      #toggle-detail-btn.hidden {
+        top: 90px;
+        transition: top 0.5s;
+      }
+      #toggle-detail-btn-icon.show {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transition: transform 0.5s;
+        -webkit-transition:  -webkit-transform 0.5s;
+      }
+      #toggle-detail-btn-icon.hidden {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transition: transform 0.5s;
+        -webkit-transition:  -webkit-transform 0.5s;
+      }
+    </style>
+  </ion-content>
+</ion-view>
