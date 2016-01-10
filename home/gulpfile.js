@@ -2,7 +2,7 @@
  * @Author: LuHao
  * @Date:   2015-12-04 10:37:04
  * @Last Modified by:   LuHao
- * @Last Modified time: 2015-12-20 08:31:13
+ * @Last Modified time: 2016-01-10 16:54:39
  */
 
 // Load plugins
@@ -30,13 +30,27 @@ gulp.task('htmls', function() {
 
 // Styles
 gulp.task('styles', function() {
-    return gulp.src('src/styles/*.css')
+    return sass('src/styles/**/*.scss')
+        // .pipe(sourcemaps.init())
+        // .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 version','android 4','ios 6'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(concat('main.css'))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(minifycss())
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/css'))
 })
 
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src('src/scripts/**/*.js')
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js'))
 })
 
@@ -63,7 +77,7 @@ gulp.task('default', ['clean'], function() {
 
 gulp.task('watch', ['browser-sync'], function() {
     // Watch .scss files
-    gulp.watch('src/styles/**/*.css', ['styles']);
+    gulp.watch('src/styles/**/*.scss', ['styles']);
     // Watch .js files
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     // Watch image files
