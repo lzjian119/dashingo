@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="utf-8">
-    <title>爱行天下-Dashigo</title>
+    <title>爱行天下-DashinGO</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="css/javascript.fullPage.css"></head>
     <!-- <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script> -->
 <body>
+<img id="preLoad" onload="first()" src="/img/hero-back.jpg" style="display: none;">
+<script type="text/javascript">
+    function first() {
+        document.getElementById('mask').style.backgroundImage = "url('/img/hero-back.jpg')";
+        document.getElementById('mask').className="active";
+        document.getElementById('hero-slogan').className="active";
+        document.getElementById('banner-slogan2').className="active";
+        document.getElementById('hero').className="active";
+        document.getElementById('scene-down').className="active";
+    }
+</script>
 <header>
     <img id="logo" src="img/logo.png">
     <ul id="nav">
@@ -35,6 +46,17 @@
 </header>
 <div id="fullpage">
     <div class="section">
+        <div class="sk-cube-grid" id="loading">
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
+        </div>
         <section id="mask"></section>
         <div style="height: 100%"></div>
         <section id="hero">
@@ -76,29 +98,33 @@
     </footer>
 </div>
 
-<script type="text/javascript" src="js/javascript.fullPage.js"></script>
-<script type="text/javascript">
-    // jQuery(document).ready(function($) {
-    //     $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-    //     $('#scene-down').click(function(){
-    //         $body.animate({scrollTop: $('#banner').offset().top}, 1000);
-    //         return false;
-    //     });
-    // })
+<script src="js/javascript.fullPage.js"></script>
+<script>
     fullpage.initialize('#fullpage', {
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+        anchors: ['1', '2'],
         menu: '#menu',
         css3: true,
+        fitToSection: false,
         'onLeave': function(index, nextIndex, direction){
-        },
-        'afterLoad': function(anchorLink, index){
-            if(index == 2) {
-                fullpage.setAutoScrolling(false);
-                fullpage.setAllowScrolling(false, 'up');
+            if(index == 1) {
+                // fullpage.setAutoScrolling(false);
+                // fullpage.setFitToSection(false);
+                // fullpage.setAllowScrolling(false, 'up');
             }
         },
+        'afterLoad': function(anchorLink, index){
+            if(index == 1) {
+            }
+            if(index == 2) {
+                fullpage.setAutoScrolling(false);
+                // fullpage.setFitToSection(false);
+                // fullpage.setAllowScrolling(false, 'up');
+            }
+        }
     });
-
+    document.getElementById('scene-down').onclick = function() {
+        fullpage.moveSectionDown();
+    }
 </script>
 </body>
 </html>
