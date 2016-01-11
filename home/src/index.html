@@ -10,50 +10,52 @@
     <meta name="description" content="">
     <meta name="favicon" content="">
     <link rel="stylesheet" href="css/main.min.css"></head>
+    <link rel="stylesheet" href="css/javascript.fullPage.css"></head>
+    <!-- <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script> -->
 <body>
-
-    <section id="mask"></section>
-
-    <header>
-        <img id="logo" src="img/logo.png">
-        <ul id="nav">
-            <li>
-                <a href="" class="btn active">首页</a>
-            </li>
-            <li>
-                <a href="" class="btn">app下载</a>
-            </li>
-            <li>
-                <a href="" class="btn">帮助与反馈</a>
-            </li>
-            <li>
-                <a href="" class="btn">关于我们</a>
-            </li>
-            <li>
-                <a href="" class="btn">微信平台</a>
-            </li>
-        </ul>
-    </header>
-
-    <div style="height: 100%"></div>
-
-    <section id="hero">
-        <img id="hero-slogan" src="img/hero-slogan.png">
-        <img id="banner-slogan2" src="img/banner-slogan.png">
-        <a id="scene-down"></a>
-    </section>
-
+<header>
+    <img id="logo" src="img/logo.png">
+    <ul id="nav">
+        <li>
+            <a href="" class="btn active">首页</a>
+        </li>
+        <li>
+            <a href="" class="btn">app下载</a>
+        </li>
+        <li>
+            <a href="" class="btn">帮助与反馈</a>
+        </li>
+        <li>
+            <a href="" class="btn">关于我们</a>
+        </li>
+        <li>
+            <a href="" class="btn">微信平台</a>
+        </li>
+    </ul>
+</header>
+<div id="fullpage">
+    <div class="section">
+        <section id="mask"></section>
+        <div style="height: 100%"></div>
+        <section id="hero">
+            <img id="hero-slogan" src="img/hero-slogan.png">
+            <img id="banner-slogan2" src="img/banner-slogan.png">
+            <a id="scene-down"></a>
+        </section>
+    </div>
+    <div class="section" style="height: 0;">
+    </div>
     <section id="banner">
         <img id="banner-pic" src="img/banner-pic.png">
-        <img id="banner-slogan1" src="img/banner-slogan.png"></section>
-
+        <img id="banner-slogan1" src="img/banner-slogan.png">
+        <img id="banner-slogan3" src="img/banner-slogan-normal.png">
+    </section>
     <section id="title">
         <h2>“大声走”路程</h2>
     </section>
-
     <section style="text-align: center;">
-        <img id="main-content" src="img/main-content.png"></section>
-
+        <img id="main-content" src="img/main-content.png">
+    </section>
     <footer>
         <div id="footer">
             <div class="footer-column">
@@ -72,31 +74,31 @@
             </div>
         </div>
     </footer>
+</div>
+
+<script type="text/javascript" src="js/javascript.fullPage.js"></script>
 <script type="text/javascript">
-    window.onload = function() {
-        var objDiv=document.getElementById("mask");
-        var startX,startY,endX,endY;
-        objDiv.addEventListener("touchend",function(e){
-            endX= e.changedTouches[0].pageX;
-            endY= e.changedTouches[0].pageY;
-            alert((endX-startX)+","+(endY-startY));
-            if(endX-startX>0){
-                alert("向右滑动");
+    // jQuery(document).ready(function($) {
+    //     $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+    //     $('#scene-down').click(function(){
+    //         $body.animate({scrollTop: $('#banner').offset().top}, 1000);
+    //         return false;
+    //     });
+    // })
+    fullpage.initialize('#fullpage', {
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+        menu: '#menu',
+        css3: true,
+        'onLeave': function(index, nextIndex, direction){
+        },
+        'afterLoad': function(anchorLink, index){
+            if(index == 2) {
+                fullpage.setAutoScrolling(false);
+                fullpage.setAllowScrolling(false, 'up');
             }
-            if(endX-startX<0){
-                alert("向左滑动");
-            }
-            if(endY-startY>0){
-                alert("向下滑动");
-            }
-            if(endY-startY<0){
-                alert("向上滑动");
-            }
-            if((endX-startX==0)&&(endY-startY==0)){
-                alert("tap事件");
-            }
-        });
-    }
+        },
+    });
+
 </script>
 </body>
 </html>
