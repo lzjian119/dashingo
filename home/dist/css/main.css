@@ -46,21 +46,31 @@ abbr, acronym {
 /* Custom CSS
  * --------------------------------------- */
 header {
-  position: absolute;
+  position: fixed;
   top: 0px;
   background-color: rgba(0, 0, 0, 0.631);
   width: 100%;
   height: 65px;
   z-index: 10; }
+  @media (max-width: 1200px) {
+    header {
+      height: 40px; } }
   header #logo {
     position: relative;
     left: 10%;
     height: 50px;
     margin-top: 7.5px; }
+    @media (max-width: 1200px) {
+      header #logo {
+        height: 30px;
+        margin-top: 5px; } }
   header #nav {
     float: right;
     position: relative;
     right: 10%; }
+    @media (max-width: 1200px) {
+      header #nav {
+        display: none; } }
     header #nav > li {
       float: left;
       padding: 0 10px; }
@@ -85,6 +95,18 @@ section#hero {
     width: 60%;
     margin-top: 15%;
     z-index: 2; }
+    @media (max-width: 1200px) {
+      section#hero > #hero-slogan {
+        width: 90%;
+        margin-top: 40%; } }
+  section#hero > #banner-slogan2 {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    max-width: 90%; }
+    @media (min-width: 1200px) {
+      section#hero > #banner-slogan2 {
+        display: none; } }
   section#hero #scene-down {
     cursor: pointer;
     width: 53px;
@@ -98,13 +120,16 @@ section#hero {
     overflow: hidden;
     -webkit-animation: sp_down 0.75s linear 0.5s infinite alternate;
     animation: sp_down 0.75s linear 0.5s infinite alternate; }
+    @media (max-width: 1200px) {
+      section#hero #scene-down {
+        background-size: 50% 50%;
+        left: 50%;
+        margin-left: -13.25px;
+        bottom: 60px; } }
 
 @-webkit-keyframes sp_down {
   0% {
     bottom: 40px; }
-  50% {
-    bottom: 33px;
-    opacity: 0.8; }
   100% {
     bottom: 20px;
     opacity: 0.5; } }
@@ -112,9 +137,6 @@ section#hero {
 @keyframes sp_down {
   0% {
     bottom: 40px; }
-  50% {
-    bottom: 33px;
-    opacity: 0.8; }
   100% {
     bottom: 20px;
     opacity: 0.5; } }
@@ -126,31 +148,57 @@ section#mask {
   background: url("../img/hero.png");
   -webkit-filter: blur(3px);
   filter: blur(3px);
-  background-size: 100% 100%; }
+  background-size: auto 100%; }
+  @media (max-width: 1200px) {
+    section#mask {
+      background-size: auto 100%; } }
 
 section#banner {
   background: url("../img/banner-back.jpg");
-  background-size: 100% 100%;
+  background-size: auto 100%;
   width: 100%;
-  height: 400px; }
+  height: 400px;
+  position: absolute;
+  top: 100%; }
+  @media (max-width: 1200px) {
+    section#banner {
+      background-size: auto 100%; } }
+  @media (max-width: 1200px) {
+    section#banner {
+      height: 300px; } }
   section#banner > #banner-pic {
     position: relative;
     left: 20%;
     height: 300px;
     top: 100px; }
-  section#banner > #banner-slogan {
+    @media (max-width: 1200px) {
+      section#banner > #banner-pic {
+        left: 10%;
+        height: 200px;
+        top: 100px; } }
+  section#banner > #banner-slogan1 {
     position: absolute;
     right: 20%;
     top: 200px;
     height: 50px; }
+    @media (max-width: 1200px) {
+      section#banner > #banner-slogan1 {
+        display: none; } }
+
+html {
+  height: 100%; }
 
 body {
-  background: url("../img/back.gif"); }
+  background: url("../img/back.gif");
+  height: 100%; }
 
 section#title {
   font-size: 3em;
   text-align: center;
-  margin-top: 60px; }
+  margin-top: 460px; }
+  @media (max-width: 1200px) {
+    section#title {
+      height: 360px; } }
   section#title > h2 {
     display: inline-block;
     border: 1px solid black;
@@ -158,15 +206,32 @@ section#title {
 
 #main-content {
   margin-top: 60px;
-  width: 100%; }
+  width: 80%; }
 
 footer {
   margin-top: 60px;
   background-color: #535353;
-  padding: 0 10%;
-  height: 400px;
+  padding: 5% 10%;
   color: white;
   text-align: center; }
-  footer > #footer-column > li {
-    width: 30%;
-    float: left; }
+  footer #footer {
+    width: 100%;
+    display: table; }
+    footer #footer > .footer-column {
+      width: 30%;
+      float: left;
+      clear: both;
+      display: table-column; }
+      @media (max-width: 1200px) {
+        footer #footer > .footer-column {
+          width: 100%; } }
+      footer #footer > .footer-column > #footer-logo {
+        max-width: 150px; }
+      footer #footer > .footer-column > ul {
+        text-align: left; }
+        footer #footer > .footer-column > ul > li {
+          margin-left: 20%;
+          line-height: 30px; }
+          @media (max-width: 1200px) {
+            footer #footer > .footer-column > ul > li {
+              margin-left: 15%; } }

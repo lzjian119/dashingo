@@ -50,20 +50,34 @@ abbr,acronym { border: 0;
 $header-color: rgba(0, 0, 0, 0.631);
 $header-height: 65px;
 
+$break-small: 320px;
+$break-normal: 768px;
+$break-large: 1200px;
+
 header {
-  position: absolute;
+  position: fixed;
   top: 0px;
   background-color: $header-color;
   width: 100%;
+  @media (max-width: $break-large) {
+    height: 40px;
+  }
   height: $header-height;
   z-index: 10;
   #logo {
     position: relative;
     left: 10%;
+    @media (max-width: $break-large) {
+      height: 30px;
+      margin-top: 5px;
+    }
     height: 50px;
     margin-top: 7.5px;
   }
   #nav {
+    @media (max-width: $break-large) {
+      display: none;
+    }
     float: right;
     position: relative;
     right: 10%;
@@ -95,11 +109,30 @@ section#hero {
   background-color: rgba(0, 0, 0, 0.7);
   > #hero-slogan {
     width: 60%;
+    @media (max-width: $break-large) {
+      width: 90%;
+      margin-top: 40%;
+    }
     margin-top: 15%;
     z-index: 2;
   }
+  > #banner-slogan2 {
+    @media (min-width: $break-large) {
+      display: none;
+    }
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    max-width: 90%;
+  }
   #scene-down {
     cursor: pointer;
+    @media (max-width: $break-large) {
+      background-size: 50% 50%;
+      left: 50%;
+      margin-left: -13.25px;
+      bottom: 60px;
+    }
     width: 53px;
     height: 30px;
     position: absolute;
@@ -115,7 +148,6 @@ section#hero {
 
 @keyframes sp_down {
     0%   {bottom: 40px;}
-    50%  {bottom: 33px; opacity: 0.8;}
     100% {bottom: 20px; opacity: 0.5;}
 }
 
@@ -124,23 +156,42 @@ section#mask {
   top: 0px;
   width: 100%;
   height: 100%;
+  @media (max-width: $break-large) {
+    background-size: auto 100%;
+  }
   background: url('../img/hero.png');
   filter: blur(3px);
-  background-size: 100% 100%;
+  background-size: auto 100%;
 }
 
 section#banner {
   background: url('../img/banner-back.jpg');
-  background-size: 100% 100%;
+  @media (max-width: $break-large) {
+    background-size: auto 100%;
+  }
+  background-size: auto 100%;
   width: 100%;
   height: 400px;
+  position: absolute;
+  @media (max-width: $break-large) {
+    height: 300px;
+  }
+  top: 100%;
   > #banner-pic {
     position: relative;
+    @media (max-width: $break-large) {
+      left: 10%;
+      height: 200px;
+      top: 100px;
+    }
     left: 20%;
     height: 300px;
     top: 100px;
   }
-  > #banner-slogan {
+  > #banner-slogan1 {
+    @media (max-width: $break-large) {
+      display: none;
+    }
     position: absolute;
     right: 20%;
     top: 200px;
@@ -148,14 +199,22 @@ section#banner {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  background: url('../img/back.gif')
+  background: url('../img/back.gif');
+  height: 100%;
 }
 
 section#title {
   font-size: 3em;
   text-align: center;
-  margin-top: 60px;
+  @media (max-width: $break-large) {
+    height: 360px;
+  }
+  margin-top: 460px;
   > h2 {
     display: inline-block;
     border: 1px solid black;
@@ -165,20 +224,39 @@ section#title {
 
 #main-content {
   margin-top: 60px;
-  width: 100%;
+  width: 80%;
 }
 
 footer {
   margin-top: 60px;
   background-color: #535353;
-  padding: 0 10%;
-  height: 400px;
+  padding: 5% 10%;
   color: white;
   text-align: center;
-  > #footer-column {
-    > li {
+  #footer {
+    width: 100%;
+    display: table;
+    > .footer-column {
       width: 30%;
+      @media (max-width: $break-large) {
+        width: 100%;
+      }
       float: left;
+      clear: both;
+      display: table-column;
+      > #footer-logo {
+        max-width: 150px;
+      }
+      > ul {
+        text-align: left;
+        > li {
+          @media (max-width: $break-large) {
+            margin-left: 15%;
+          }
+          margin-left: 20%;
+          line-height: 30px;
+        }
+      }
     }
   }
 }

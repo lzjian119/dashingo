@@ -11,7 +11,9 @@
     <meta name="favicon" content="">
     <link rel="stylesheet" href="css/main.min.css"></head>
 <body>
-<!--     <section id="mask"></section>
+
+    <section id="mask"></section>
+
     <header>
         <img id="logo" src="img/logo.png">
         <ul id="nav">
@@ -32,36 +34,69 @@
             </li>
         </ul>
     </header>
+
+    <div style="height: 100%"></div>
+
     <section id="hero">
-        <img id="heroslogan" src="img/hero-slogan.png">
+        <img id="hero-slogan" src="img/hero-slogan.png">
+        <img id="banner-slogan2" src="img/banner-slogan.png">
         <a id="scene-down"></a>
-    </section> -->
+    </section>
+
     <section id="banner">
         <img id="banner-pic" src="img/banner-pic.png">
-        <img id="banner-slogan" src="img/banner-slogan.png">
-    </section>
+        <img id="banner-slogan1" src="img/banner-slogan.png"></section>
+
     <section id="title">
         <h2>“大声走”路程</h2>
     </section>
-    <section>
-        <img id="main-content" src="img/main-content.png">
-    </section>
+
+    <section style="text-align: center;">
+        <img id="main-content" src="img/main-content.png"></section>
+
     <footer>
-        <ul id="footer-column">
-            <li><img src="img/footer-logo.png"></li>
-            <li>
+        <div id="footer">
+            <div class="footer-column">
+                <img id="footer-logo" src="img/footer-logo.png"></div>
+            <div class="footer-column">
                 <ul>
-                    <li>服务热线</li>
+                    <li>服务热线：XXX-XXXXXX</li>
                 </ul>
-            </li>
-            <li>
+            </div>
+            <div class="footer-column">
                 <ul>
-                    <li>企业QQ</li>
-                    <li>企业邮箱</li>
-                    <li>地址</li>
+                    <li>企业QQ：XXXXXXXXX</li>
+                    <li>企业邮箱：XXXXXXX@XXX.com</li>
+                    <li>地址：XXXXXXXXXXXX</li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </footer>
+<script type="text/javascript">
+    window.onload = function() {
+        var objDiv=document.getElementById("mask");
+        var startX,startY,endX,endY;
+        objDiv.addEventListener("touchend",function(e){
+            endX= e.changedTouches[0].pageX;
+            endY= e.changedTouches[0].pageY;
+            alert((endX-startX)+","+(endY-startY));
+            if(endX-startX>0){
+                alert("向右滑动");
+            }
+            if(endX-startX<0){
+                alert("向左滑动");
+            }
+            if(endY-startY>0){
+                alert("向下滑动");
+            }
+            if(endY-startY<0){
+                alert("向上滑动");
+            }
+            if((endX-startX==0)&&(endY-startY==0)){
+                alert("tap事件");
+            }
+        });
+    }
+</script>
 </body>
 </html>
