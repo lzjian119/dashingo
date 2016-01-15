@@ -29,105 +29,62 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     $stateProvider
 
-      .state('tab', {
-        url: '/tab',
+      .state('app', {
+        url: '/app',
         abstract: true,
-        templateUrl: 'templates/tabs.html'
+        templateUrl: 'templates/app/menu.html',
+        controller: 'AppCtrl'
       })
 
-      .state('tab.home', {
+      .state('app.tab', {
+        url: '/tab',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/tabs.html'
+          }
+        }
+      })
+
+      .state('app.tab.home', {
         url: '/home',
         views: {
           'tab-home': {
-            templateUrl: 'templates/tab-home.html',
+            templateUrl: 'templates/app/tab-home.html',
             controller: 'HomeCtrl'
           }
         }
       })
 
-      .state('tab.square', {
+      .state('app.tab.square', {
         url: '/square',
         views: {
           'tab-square': {
-            templateUrl: 'templates/tab-square.html',
+            templateUrl: 'templates/app/tab-square.html',
             controller: 'SquareCtrl'
           }
         }
       })
-      //.state('tab.chat-detail', {
-      //  url: '/chats/:chatId',
-      //  views: {
-      //    'tab-chats': {
-      //      templateUrl: 'templates/chat-detail.html',
-      //      controller: 'ChatDetailCtrl'
-      //    }
-      //  }
-      //})
 
-      .state('tab.trend', {
+      .state('app.tab.trend', {
         url: '/trend',
         views: {
           'tab-trend': {
-            templateUrl: 'templates/tab-trend.html',
+            templateUrl: 'templates/app/tab-trend.html',
             controller: 'TrendCtrl'
           }
         }
       })
 
-      .state('tab.activity', {
+      .state('app.tab.activity', {
         url: '/activity',
         views: {
           'tab-activity': {
-            templateUrl: 'templates/tab-activity.html',
+            templateUrl: 'templates/app/tab-activity.html',
             controller: 'ActivityCtrl'
           }
         }
       })
 
-    //.state('app', {
-    //  url: '/app',
-    //  abstract: true,
-    //  templateUrl: 'templates/menu.html',
-    //  controller: 'AppCtrl'
-    //})
-    //
-    //.state('app.search', {
-    //  url: '/search',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/search.html'
-    //    }
-    //  }
-    //})
-    //
-    //.state('app.browse', {
-    //  url: '/browse',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/browse.html'
-    //    }
-    //  }
-    //})
-    //.state('app.playlists', {
-    //  url: '/playlists',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/playlists.html',
-    //      controller: 'PlaylistsCtrl'
-    //    }
-    //  }
-    //})
-    //
-    //.state('app.single', {
-    //  url: '/playlists/:playlistId',
-    //  views: {
-    //    'menuContent': {
-    //      templateUrl: 'templates/playlist.html',
-    //      controller: 'PlaylistCtrl'
-    //    }
-    //  }
-    //});
-
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/home');
+    $urlRouterProvider.otherwise('/app/tab/home');
   });
