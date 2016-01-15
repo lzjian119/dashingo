@@ -31,30 +31,43 @@
       #console-bar.show {
         height: 180px;
         transition: height 0.5s;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
       }
       #console-bar.hidden {
         height: 90px;
         transition: height 0.5s;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn.show {
-        top: 180px;
-        transition: top 0.5s;
+        /*top: 180px;*/
+        transform: translate3d(0, 180px, 0);
+        transition: transform 0.5s;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn.hidden {
-        top: 90px;
-        transition: top 0.5s;
+        /*top: 90px;*/
+        transform: translate3d(0, 90px, 0);
+        transition: transform 0.5s;
+        -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn-icon.show {
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         transition: transform 0.5s;
         -webkit-transition:  -webkit-transform 0.5s;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn-icon.hidden {
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         transition: transform 0.5s;
         -webkit-transition:  -webkit-transform 0.5s;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
       }
     </style>
   </ion-content>
