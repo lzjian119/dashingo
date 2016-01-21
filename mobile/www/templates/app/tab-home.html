@@ -10,62 +10,60 @@
       <div class="row" style="border-top: 1px solid #666; margin-top: 10px;">
         <div class="col">
           <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
-          <span style="font-size: 6px;">速度<br>（km/h）</span>
+          <span style="font-size: 13px;">速度<br>（km/h）</span>
         </div>
         <div class="col" style="border-left: 1px solid #666; border-right: 1px solid #666; ">
           <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
-          <span style="font-size: 6px;">距离<br>（km）</span>
+          <span style="font-size: 13px;">距离<br>（km）</span>
         </div>
         <div class="col">
           <span style="color: #FF9C26; font-size: 25px;">0.0</span><br>
-          <span style="font-size: 6px;">热量<br>（kcall）</span>
+          <span style="font-size: 13px;">热量<br>（kcall）</span>
         </div>
       </div>
     </div>
     <div id="toggle-detail-btn" ng-class="{'hidden': hideFlag, 'show': !hideFlag}" ng-click="toggleDetail()"
          style="height: 20px; text-align: center; background-color: #888; position: absolute;
-      width: 100%; color: #eee; font-size: 20px; line-height: 20px;">
+          width: 100%; color: #eee; font-size: 20px; line-height: 20px;">
       <i id="toggle-detail-btn-icon" ng-class="{'hidden': hideFlag, 'show': !hideFlag}" class="ion-chevron-down"></i>
     </div>
     <style>
       #console-bar.show {
         height: 180px;
-        transition: height 0.5s;
+        transform: translate3d(0,0,0);
+        transition: transform 0.5s;
         -webkit-backface-visibility: hidden;
         -webkit-transform-style: preserve-3d;
       }
       #console-bar.hidden {
         height: 90px;
-        transition: height 0.5s;
+        transform: translate3d(0,0,180px);
+        transition: transform 0.5s;
         -webkit-backface-visibility: hidden;
         -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn.show {
-        /*top: 180px;*/
+        top: 0;
         transform: translate3d(0, 180px, 0);
         transition: transform 0.5s;
         -webkit-backface-visibility: hidden;
         -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn.hidden {
-        /*top: 90px;*/
+        top: 0;
         transform: translate3d(0, 90px, 0);
         transition: transform 0.5s;
         -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn-icon.show {
         transform: rotate(180deg);
-        -webkit-transform: rotate(180deg);
         transition: transform 0.5s;
-        -webkit-transition:  -webkit-transform 0.5s;
         -webkit-backface-visibility: hidden;
         -webkit-transform-style: preserve-3d;
       }
       #toggle-detail-btn-icon.hidden {
-        transform: rotate(180deg);
-        -webkit-transform: rotate(180deg);
+        transform: rotate(0deg);
         transition: transform 0.5s;
-        -webkit-transition:  -webkit-transform 0.5s;
         -webkit-backface-visibility: hidden;
         -webkit-transform-style: preserve-3d;
       }
