@@ -23,7 +23,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
   })
 
-  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
 
     $ionicConfigProvider.tabs.position('bottom');
 
@@ -33,7 +35,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: '/app',
         abstract: true,
         templateUrl: 'templates/app/menu.html',
-        controller: 'AppCtrl'
+        controller: 'MenuCtrl'
       })
 
       .state('app.tab', {
@@ -85,6 +87,63 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       })
 
+      .state('app.home', {
+        url: '/home',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/home/main.html'
+          }
+        }
+      })
+
+      .state('app.notify', {
+        url: '/notify',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/notify/main.html'
+          }
+        }
+      })
+
+      .state('app.draft', {
+        url: '/draft',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/draft/main.html'
+          }
+        }
+      })
+
+      .state('app.setting', {
+        url: '/setting',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/setting/main.html'
+          }
+        }
+      })
+
+      .state('app.auxiliary', {
+        url: '/auxiliary',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/setting/auxiliary.html'
+          }
+        }
+      })
+
+
+      .state('app.blacklist', {
+        url: '/blacklist',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/setting/blacklist.html'
+          }
+        }
+      })
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/tab/home');
-  });
+  })
+
+.constant('apiUrl', 'http://192.168.55.102/index.php')

@@ -1,0 +1,21 @@
+<ion-view class="coach-list-view">
+  <ion-nav-title>
+    <span>黑名单</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button">全部移除</button>
+  </ion-nav-buttons>
+  <ion-content padding="false">
+    <ion-list>
+      <ion-item class="item-avatar">
+        <img src="img/ionic.png">
+        <p>卡卡</p>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

@@ -13,7 +13,8 @@
   <ion-side-menu side="left" class="main-menu" expose-aside-when="large" style="background: #27384B">
     <ion-content overflow-scroll="true">
       <ion-list>
-        <a class="item item-calm" ng-click="login()" style="border: none; text-align: center;">
+        <!--<a class="item item-calm" ng-click="login()" style="border: none; text-align: center;" ui-sref="app.home">-->
+        <a class="item item-calm" style="border: none; text-align: center;">
           <img src="img/ionic.png" style="width: 40%; border-radius: 50%; border: 2px solid white;">
           <p style="color: white; font-size: 20px; margin-top: 10px; margin-bottom: 10px;">春风贵如湿哒哒</p>
         </a>
@@ -29,15 +30,15 @@
             </div>
           </div>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.purse">
+        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.home">
           <i class="icon ion-cash" style="padding-left: 10%;"></i>
-          <span style="padding-left: 10%;">我的行程</span>
+          <span style="padding-left: 10%;">我的主页</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.coach-mine">
+        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()">
           <i class="icon ion-university" style="padding-left: 10%;"></i>
           <span style="padding-left: 10%;">等级权限</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.learn-record">
+        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.draft">
           <i class="icon ion-connection-bars" style="padding-left: 10%;"></i>
           <span style="padding-left: 10%;">草稿箱</span>
         </ion-item>
@@ -45,7 +46,7 @@
           <i class="icon ion-android-notifications" style="padding-left: 10%;"></i>
           <span style="padding-left: 10%;">消息通知</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.protocol">
+        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.setting">
           <i class="icon ion-android-clipboard" style="padding-left: 10%;"></i>
           <span style="padding-left: 10%;">设置</span>
         </ion-item>

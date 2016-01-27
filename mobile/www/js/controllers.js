@@ -1,5 +1,7 @@
 angular.module('starter.controllers', ['baiduMap'])
 
+
+
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
     // With the new view caching in Ionic, Controllers are only called
@@ -38,6 +40,12 @@ angular.module('starter.controllers', ['baiduMap'])
       $timeout(function () {
         $scope.closeLogin();
       }, 1000);
+    };
+  })
+
+  .controller('MenuCtrl', function ($scope, $ionicSideMenuDelegate) {
+    $scope.closeMenu = function () {
+      $ionicSideMenuDelegate.toggleRight();
     };
   })
 
