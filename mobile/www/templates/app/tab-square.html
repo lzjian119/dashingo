@@ -1,9 +1,52 @@
-<ion-view view-title="广场">
+<ion-view view-title="广场" style="background-color: #383644">
   <ion-content>
+    <ion-slide-box style="height: 150px;">
+      <ion-slide>
+        <div style="background-color: blue; height: 100%;"></div>
+      </ion-slide>
+      <ion-slide>
+        <div style="background-color: red; height: 100%;"></div>
+      </ion-slide>
+      <ion-slide>
+        <div style="background-color: yellow; height: 100%;"></div>
+      </ion-slide>
+      <ion-slide>
+        <div style="background-color: green; height: 100%;"></div>
+      </ion-slide>
+    </ion-slide-box>
+    <style>
+      .popular-user-list {
+        width: 90%; border-radius: 50%; border: 2px solid white;
+      }
+    </style>
     <ion-list>
-      <ion-toggle>
-        Enable Friends
-      </ion-toggle>
+      <ion-item class="item-divider item-dark">
+        热门用户
+      </ion-item>
+      <ion-item class="item-dark">
+        <div class="row" style="text-align: center;">
+          <div class="col">
+            <img src="img/ionic.png" class="popular-user-list">
+            <br>
+            <p style="font-size: 10px;">春雨贵如油</p>
+          </div>
+          <div class="col">
+            <img src="img/ionic.png" class="popular-user-list">
+            <br>
+            <p>春雨贵如油</p>
+          </div>
+          <div class="col">
+            <img src="img/ionic.png" class="popular-user-list">
+            <br>
+            <p>春雨贵如油</p>
+          </div>
+          <div class="col">
+            <img src="img/ionic.png" class="popular-user-list">
+            <br>
+            <p>春雨贵如油</p>
+          </div>
+        </div>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
