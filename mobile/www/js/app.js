@@ -42,7 +42,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: '/tab',
         views: {
           'main-content': {
-            templateUrl: 'templates/app/tabs.html'
+            templateUrl: 'templates/app/tabs.html',
+            controller: 'TabCtrl'
           }
         }
       })
@@ -53,6 +54,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           'tab-home': {
             templateUrl: 'templates/app/tab-home.html',
             controller: 'HomeCtrl'
+          }
+        }
+      })
+
+      .state('app.tab.load_path', {
+        url: '/load_path',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/app/common/load_path.html',
+            controller: 'LoadPathCtrl'
+          }
+        }
+      })
+
+      .state('app.tab.issue_event', {
+        url: '/issue_event',
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/app/common/issue_event.html',
+            controller: 'IssueEventCtrl'
           }
         }
       })
@@ -91,7 +112,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: '/home',
         views: {
           'main-content': {
-            templateUrl: 'templates/app/home/main.html'
+            templateUrl: 'templates/app/home/main.html',
+            controller: 'HomePageCtrl'
+          }
+        }
+      })
+
+      .state('app.home_other', {
+        url: '/home_other',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/home/other.html',
+            controller: 'HomePageCtrl'
           }
         }
       })
@@ -110,6 +142,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         views: {
           'main-content': {
             templateUrl: 'templates/app/draft/main.html'
+          }
+        }
+      })
+
+      .state('app.draft_detail', {
+        url: '/draft_detail',
+        views: {
+          'main-content': {
+            templateUrl: 'templates/app/draft/detail.html'
           }
         }
       })

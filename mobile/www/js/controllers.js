@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['baiduMap'])
     ];
   })
 
-  .controller('HomeCtrl', function ($scope) {
+  .controller('HomeCtrl', function ($scope, $rootScope) {
     var longitude = 113.738487;
     var latitude = 34.361282;
     $scope.mapOptions = {
@@ -85,12 +85,96 @@ angular.module('starter.controllers', ['baiduMap'])
     $scope.toggleDetail = function () {
       $scope.hideFlag = !$scope.hideFlag;
     };
+    $scope.check_state = function (index) {
+      return $rootScope.state == index;
+    }
   })
 
   .controller('SquareCtrl', function ($scope) {
+    $scope.query = {
+      value: ''
+    };
+    $scope.tab = 1;
+    $scope.searched = false;
+    $scope.searching = function() {
+      return $scope.query.value;
+    };
+    $scope.search_result = function () {
+      $scope.searched = true;
+    };
+    $scope.back = function () {
+      $scope.searched = false;
+    };
+    $scope.clear = function () {
+      $scope.query.value = '';
+      $scope.searched = false;
+    };
+    $scope.select_tab = function (index) {
+      $scope.tab = index;
+    };
+    $scope.selected = function (index) {
+      return $scope.tab == index;
+    };
+  })
+
+
+  .controller('HomePageCtrl', function ($scope) {
+    $scope.query = {
+      value: ''
+    };
+    $scope.tab = 1;
+    $scope.searched = false;
+    $scope.searching = function() {
+      return $scope.query.value;
+    };
+    $scope.search_result = function () {
+      $scope.searched = true;
+    };
+    $scope.back = function () {
+      $scope.searched = false;
+    };
+    $scope.clear = function () {
+      $scope.query.value = '';
+      $scope.searched = false;
+    };
+    $scope.select_tab = function (index) {
+      $scope.tab = index;
+    };
+    $scope.selected = function (index) {
+      return $scope.tab == index;
+    };
+  })
+
+  .controller('LoadPathCtrl', function ($scope) {
+    $scope.tab = 1;
+    $scope.select_tab = function (index) {
+      $scope.tab = index;
+    };
+    $scope.selected = function (index) {
+      return $scope.tab == index;
+    };
   })
 
   .controller('TrendCtrl', function ($scope, $stateParams) {
+  })
+
+  .controller('TabCtrl', function ($scope, $rootScope, $state) {
+    // 控制中间按钮
+    // 0: 未开始
+    // 1: 进行中
+    // 2: 休息
+    $rootScope.state = 0;
+    $scope.change = function () {
+      if ($rootScope.state == 1)
+      {
+        $state.go('app.tab.issue_event');
+      }
+      $rootScope.state += 1;
+    }
+  })
+  
+  .controller('IssueEventCtrl', function ($scope) {
+    
   })
 
   .controller('ActivityCtrl', function ($scope) {

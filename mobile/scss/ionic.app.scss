@@ -27,3 +27,11 @@ $dark: #383644 !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.route-list {
+  border-width: 0;
+  border-radius: 8px;
+}
+
+.tab_col_active {
+  background-color: #FFAF17;
+}

@@ -1,10 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<ion-view style="background: #383644;">
+  <ion-nav-title>
+    <span>消息通知</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear">全部已读</button>
+  </ion-nav-buttons>
+  <style>
+  </style>
+  <ion-content padding="false">
+    <ion-list>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">卡卡</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <p style="color: white;">赞了你的旅程</p>
+        <div style="background-color: #D8D8D8; margin-left: -50px;
+         margin-right: -30px; height: 80px; display: table;">
+          <img src="img/delorean.jpg" style="height: 80px; float: left; margin-right: 10px;">
+          <span style="vertical-align: middle; display: table-cell; white-space: normal;">
+            <span style="color: #FFAF17;">春雨贵如施搭搭</span>的旅程“春日记”</span>
+        </div>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">卡卡</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <p style="color: white;">关注了你</p>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">卡卡</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <p style="color: white;">收藏了你的旅程</p>
+        <div style="background-color: #D8D8D8; margin-left: -50px;
+         margin-right: -30px; height: 80px; display: table;">
+          <img src="img/delorean.jpg" style="height: 80px; float: left; margin-right: 10px;">
+          <span style="vertical-align: middle; display: table-cell; white-space: normal;">
+            <span style="color: #FFAF17;">春雨贵如施搭搭</span>的旅程“春日记”</span>
+        </div>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">卡卡</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <p style="color: white;">小鸟太可爱了</p>
+        <div style="background-color: #D8D8D8; margin-left: -50px;
+         margin-right: -30px; padding: 10px;">
+          <span style="display: block; word-wrap:break-word; white-space:normal">
+            <span style="color: #FFAF17;">春雨贵如施搭搭:</span>小鸟唱歌的声音真好听啊啊啊啊啊~~~</span>
+        </div>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">卡卡</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <p style="color: white;">小鸟太可爱了</p>
+        <div style="background-color: #D8D8D8; margin-left: -50px;
+         margin-right: -30px; padding: 10px;">
+          <span style="display: block; word-wrap:break-word; white-space:normal">
+            <span style="color: #FFAF17;">春雨贵如施搭搭:</span>
+            <div style="color: black; background-color: #FFAF17; height: 30px; border-radius: 20px;;">
+              <i class="icon ion-ios-play"></i>
+              9''25'
+            </div>
+          </span>
+        </div>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-avatar item-dark">
+        <img src="img/ionic.png">
+        <p style="color: #FFAF17;">DashinGO小助手</p>
+        <p style="color: #898989;">2016.1.12 13:12</p>
+        <div><p style="color: white; display: block; white-space: normal;">
+          欢迎你，春雨贵如施搭搭，点击“GO”你的旅程，让更多人看到吧。</p></div>
+        <ion-option-button
+          class="button-positive"
+          ng-click="delete(item)">删除
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

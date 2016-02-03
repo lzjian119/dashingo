@@ -1,52 +1,224 @@
 <ion-view view-title="广场" style="background-color: #383644">
   <ion-content>
-    <ion-slide-box style="height: 150px;">
-      <ion-slide>
-        <div style="background-color: blue; height: 100%;"></div>
-      </ion-slide>
-      <ion-slide>
-        <div style="background-color: red; height: 100%;"></div>
-      </ion-slide>
-      <ion-slide>
-        <div style="background-color: yellow; height: 100%;"></div>
-      </ion-slide>
-      <ion-slide>
-        <div style="background-color: green; height: 100%;"></div>
-      </ion-slide>
-    </ion-slide-box>
+
+    <div id="search-bar">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper" id="search-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="搜索..." ng-model="query.value" ng-change="search()" ng-focus="back()">
+        </label>
+        <a ng-show="searching()" ng-click="clear()" style="margin-left: 10px; color: black;">取消</a>
+      </div>
+    </div>
+
     <style>
+
       .popular-user-list {
         width: 90%; border-radius: 50%; border: 2px solid white;
       }
+
+      .tab_col_active {
+        background-color: #FFAF17;
+      }
+
     </style>
-    <ion-list>
-      <ion-item class="item-divider item-dark">
-        热门用户
-      </ion-item>
-      <ion-item class="item-dark">
-        <div class="row" style="text-align: center;">
-          <div class="col">
-            <img src="img/ionic.png" class="popular-user-list">
-            <br>
-            <p style="font-size: 10px;">春雨贵如油</p>
+
+    <div ng-show="searched">
+      <div class="row"
+           style="text-align: center; padding-left: 10%; padding-right: 10%;
+          background-color: #8B5F0C; color: white; padding-top: 0; padding-bottom: 0;">
+        <div class="col" ng-click="select_tab(1)" ng-class="{tab_col_active:selected(1)}">综合</div>
+        <div class="col" ng-click="select_tab(2)" ng-class="{tab_col_active:selected(2)}">用户</div>
+        <div class="col" ng-click="select_tab(3)" ng-class="{tab_col_active:selected(3)}">旅程</div>
+      </div>
+      <div>
+        <ion-list ng-show="selected(1)">
+          <ion-item class="item-dark">
+            <div class="row" style="text-align: center;">
+              <div class="col">
+                <img src="img/ionic.png" class="popular-user-list">
+                <br>
+                <p style="font-size: 10px;">春雨贵如油</p>
+              </div>
+              <div class="col">
+                <img src="img/ionic.png" class="popular-user-list">
+                <br>
+                <p>春雨贵如油</p>
+              </div>
+              <div class="col">
+                <img src="img/ionic.png" class="popular-user-list">
+                <br>
+                <p>春雨贵如油</p>
+              </div>
+              <div class="col">
+                <img src="img/ionic.png" class="popular-user-list"
+                     style="opacity: .3;" ng-click="select_tab(2)">
+                <br>
+                <p>更多</p>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+        <ion-list ng-show="selected(2)">
+          <a class="item item-dark item-avatar" href="#">
+            <img src="img/ionic.png">
+            <h2 style="color: #FFAF17;">gagagagaga</h2>
+            <p style="color: white;">粉丝: 2312</p>
+          </a>
+          <a class="item item-dark item-avatar" href="#">
+            <img src="img/ionic.png">
+            <h2 style="color: #FFAF17;">gagagagaga</h2>
+            <p style="color: white;">粉丝: 2312</p>
+          </a>
+          <a class="item item-dark item-avatar" href="#">
+            <img src="img/ionic.png">
+            <h2 style="color: #FFAF17;">gagagagaga</h2>
+            <p style="color: white;">粉丝: 2312</p>
+          </a>
+          <a class="item item-dark item-avatar" href="#">
+            <img src="img/ionic.png">
+            <h2 style="color: #FFAF17;">gagagagaga</h2>
+            <p style="color: white;">粉丝: 2312</p>
+          </a>
+        </ion-list>
+        <ion-list ng-hide="selected(2)">
+          <div class="item-dark card route-list">
+            <div class="item item-avatar item-balanced" style="border-width: 6px; border-color: #FFAF17;">
+              <img src="img/ionic.png">
+              <h2>秘密之旅</h2>
+              <p>春雨贵如湿哒哒 2015.11.02</p>
+            </div>
+            <ion-slide-box style="height: 150px;">
+              <ion-slide>
+                <div style="background-color: blue; height: 100%;"></div>
+              </ion-slide>
+              <ion-slide>
+                <div style="background-color: red; height: 100%;"></div>
+              </ion-slide>
+              <ion-slide>
+                <div style="background-color: yellow; height: 100%;"></div>
+              </ion-slide>
+              <ion-slide>
+                <div style="background-color: green; height: 100%;"></div>
+              </ion-slide>
+            </ion-slide-box>
+            <div class="item item-body" style="padding: 0; border-width: 0;">
+              <img class="full-image" src="img/delorean.jpg">
+            </div>
+            <div class="row" style="text-align: center;">
+              <div class="col">收藏</div>
+              <div class="col">评论</div>
+              <div class="col">赞</div>
+            </div>
           </div>
-          <div class="col">
-            <img src="img/ionic.png" class="popular-user-list">
-            <br>
-            <p>春雨贵如油</p>
+        </ion-list>
+      </div>
+    </div>
+
+    <ion-list ng-show="searching() && !searched">
+      <a class="item item-icon-left item-icon-right" ng-click="search_result()">
+        <i class="icon ion-android-time"></i>
+        {{query.value}}
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="search_result()">
+        <i class="icon ion-android-time"></i>
+        大运河
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="search_result()">
+        <i class="icon ion-android-time"></i>
+        上海徒步
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="search_result()">
+        <i class="icon ion-android-time"></i>
+        野生
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+      <a class="item" style="text-align: center;">
+        <span style="border: 1px solid #FFAF17; color: #FFAF17;
+        padding: 5px 10px; border-radius: 5px;">
+          清空历史记录</span>
+      </a>
+    </ion-list>
+
+    <div ng-hide="searching()">
+      <ion-slide-box style="height: 150px;">
+        <ion-slide>
+          <div style="background-color: blue; height: 100%;"></div>
+        </ion-slide>
+        <ion-slide>
+          <div style="background-color: red; height: 100%;"></div>
+        </ion-slide>
+        <ion-slide>
+          <div style="background-color: yellow; height: 100%;"></div>
+        </ion-slide>
+        <ion-slide>
+          <div style="background-color: green; height: 100%;"></div>
+        </ion-slide>
+      </ion-slide-box>
+      <ion-list>
+        <ion-item class="item-divider item-dark">
+          热门用户
+        </ion-item>
+        <ion-item class="item-dark">
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <img src="img/ionic.png" class="popular-user-list">
+              <br>
+              <p style="font-size: 10px;">春雨贵如油</p>
+            </div>
+            <div class="col">
+              <img src="img/ionic.png" class="popular-user-list">
+              <br>
+              <p>春雨贵如油</p>
+            </div>
+            <div class="col">
+              <img src="img/ionic.png" class="popular-user-list">
+              <br>
+              <p>春雨贵如油</p>
+            </div>
+            <div class="col">
+              <img src="img/ionic.png" class="popular-user-list">
+              <br>
+              <p>春雨贵如油</p>
+            </div>
           </div>
-          <div class="col">
-            <img src="img/ionic.png" class="popular-user-list">
-            <br>
-            <p>春雨贵如油</p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <div class="item-dark card route-list">
+          <div class="item item-avatar item-balanced" style="border-width: 6px; border-color: #FFAF17;">
+            <img src="img/ionic.png">
+            <h2>秘密之旅</h2>
+            <p>春雨贵如湿哒哒 2015.11.02</p>
           </div>
-          <div class="col">
-            <img src="img/ionic.png" class="popular-user-list">
-            <br>
-            <p>春雨贵如油</p>
+          <ion-slide-box style="height: 150px;">
+            <ion-slide>
+              <div style="background-color: blue; height: 100%;"></div>
+            </ion-slide>
+            <ion-slide>
+              <div style="background-color: red; height: 100%;"></div>
+            </ion-slide>
+            <ion-slide>
+              <div style="background-color: yellow; height: 100%;"></div>
+            </ion-slide>
+            <ion-slide>
+              <div style="background-color: green; height: 100%;"></div>
+            </ion-slide>
+          </ion-slide-box>
+          <div class="item item-body" style="padding: 0; border-width: 0;">
+            <img class="full-image" src="img/delorean.jpg">
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col">收藏</div>
+            <div class="col">评论</div>
+            <div class="col">赞</div>
           </div>
         </div>
-      </ion-item>
-    </ion-list>
+      </ion-list>
+    </div>
   </ion-content>
 </ion-view>
