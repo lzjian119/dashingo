@@ -31,6 +31,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     $stateProvider
 
+      .state('auth', {
+        url: "/auth",
+        templateUrl: "templates/app/auth/auth.html",
+        abstract: true,
+        controller: 'AuthCtrl'
+      })
+
+      .state('auth.walkthrough', {
+        url: '/walkthrough',
+        templateUrl: 'templates/app/auth/walkthrough.html'
+      })
+
       .state('app', {
         url: '/app',
         abstract: true,
@@ -184,7 +196,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       })
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/tab/home');
+
+    $urlRouterProvider.otherwise('/auth/walkthrough');
+
   })
 
 .constant('apiUrl', 'http://192.168.55.102/index.php')

@@ -172,9 +172,17 @@ angular.module('starter.controllers', ['baiduMap'])
       $rootScope.state += 1;
     }
   })
-  
+
   .controller('IssueEventCtrl', function ($scope) {
-    
+
+  })
+
+  .controller('AuthCtrl', function($scope, $ionicConfig) {
+
+  })
+
+  .controller('walkthroughCtrl', function($scope, $ionicConfig) {
+
   })
 
   .controller('ActivityCtrl', function ($scope) {
