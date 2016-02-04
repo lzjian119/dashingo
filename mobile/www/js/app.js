@@ -38,9 +38,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'AuthCtrl'
       })
 
-      .state('auth.walkthrough', {
-        url: '/walkthrough',
-        templateUrl: 'templates/app/auth/walkthrough.html'
+      .state('auth.log_04', {
+        url: '/log_04',
+        templateUrl: 'templates/app/auth/log_04.html'
+      })
+
+      .state('auth.log_01', {
+        url: '/log_01',
+        templateUrl: 'templates/app/auth/log_01.html'
+      })
+
+      .state('auth.log_02', {
+        url: '/log_02',
+        templateUrl: 'templates/app/auth/log_02.html'
+      })
+
+      .state('auth.log_03', {
+        url: '/log_03',
+        templateUrl: 'templates/app/auth/log_03.html'
       })
 
       .state('app', {
@@ -197,7 +212,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     // if none of the above states are matched, use this as the fallback
 
-    $urlRouterProvider.otherwise('/auth/walkthrough');
+    $urlRouterProvider.otherwise('/auth/log_01');
 
   })
 

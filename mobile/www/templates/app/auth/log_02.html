@@ -1,0 +1,43 @@
+<ion-view class="walkthrough-view" cache-view="false"
+          style="background-color: transparent;
+          box-shadow: none !important;
+          margin-top:15%">
+
+  <ion-content scroll="false">
+
+    <div class="content has-tabs-top">
+      <div class="col col col-80 col-offset-10">
+          <label class="item item-input">
+            <i class="icon ion-mobile placeholder-icon" style="background-image:url(img/mobile.png);background-repeat: no-repeat;background-size:contain;height:5px"></i>
+            <input type="text" placeholder="输入手机号" style="margin-left:5px;height:48px">
+          </label>
+          <label class="item item-input" style="margin-top:25px;">
+            <i class="icon ion-password placeholder-icon" style="background-image:url(img/password.png);background-repeat: no-repeat;background-size:contain;height:5px"></i>
+            <input type="password" placeholder="设置一个密码" style="margin-left:5px;height:48px">
+          </label>
+      </div>
+        <div class="row">
+          <div class="col col-60 col-offset-10">
+            <label class="item item-input" style="margin-top:20px;">
+              <input type="number" placeholder="验证码" style="height:48px">
+            </label>
+          </div>
+
+          <div class="col col-30">
+            <button class="button button-clear button-positive" style="margin-top:20px;">
+              获取验证码
+            </button>
+          </div>
+        </div>
+
+        <div class="bottom-content row">
+          <div class="col col-center" style="text-align:center">
+            <a class="button" style="background-image:url(img/logup_off.png);background-repeat: no-repeat;background-size:contain;margin-top:20px;width:250px;background-color:transparent" ui-sref="auth.log_03">
+            </a>
+          </div>
+        </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>
