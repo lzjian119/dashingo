@@ -58,6 +58,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/app/auth/log_03.html'
       })
 
+      .state('auth.log_05', {
+        url: '/log_05',
+        templateUrl: 'templates/app/auth/log_05.html'
+      })
+
       .state('app', {
         url: '/app',
         abstract: true,
