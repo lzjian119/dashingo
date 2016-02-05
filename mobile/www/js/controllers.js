@@ -45,7 +45,7 @@ angular.module('starter.controllers', ['baiduMap'])
 
   .controller('MenuCtrl', function ($scope, $ionicSideMenuDelegate) {
     $scope.closeMenu = function () {
-      $ionicSideMenuDelegate.toggleRight();
+      $ionicSideMenuDelegate.toggleLeft();
     };
   })
 
@@ -177,8 +177,10 @@ angular.module('starter.controllers', ['baiduMap'])
 
   })
 
-  .controller('AuthCtrl', function($scope, $ionicConfig) {
-
+  .controller('AuthCtrl', function($scope, $state, $ionicConfig) {
+    $scope.jump = function(index) {
+      $state.go('auth.log_0'+index);
+    }
   })
 
   .controller('walkthroughCtrl', function($scope, $ionicConfig) {

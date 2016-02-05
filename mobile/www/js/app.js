@@ -29,6 +29,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     $ionicConfigProvider.tabs.position('bottom');
 
+    $ionicConfigProvider.views.swipeBackEnabled(false);
+
     $stateProvider
 
       .state('auth', {
@@ -40,27 +42,32 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
       .state('auth.log_04', {
         url: '/log_04',
-        templateUrl: 'templates/app/auth/log_04.html'
+        templateUrl: 'templates/app/auth/log_04.html',
+        controller: 'AuthCtrl'
       })
 
       .state('auth.log_01', {
         url: '/log_01',
-        templateUrl: 'templates/app/auth/log_01.html'
+        templateUrl: 'templates/app/auth/log_01.html',
+        controller: 'AuthCtrl'
       })
 
       .state('auth.log_02', {
         url: '/log_02',
-        templateUrl: 'templates/app/auth/log_02.html'
+        templateUrl: 'templates/app/auth/log_02.html',
+        controller: 'AuthCtrl'
       })
 
       .state('auth.log_03', {
         url: '/log_03',
-        templateUrl: 'templates/app/auth/log_03.html'
+        templateUrl: 'templates/app/auth/log_03.html',
+        controller: 'AuthCtrl'
       })
 
       .state('auth.log_05', {
         url: '/log_05',
-        templateUrl: 'templates/app/auth/log_05.html'
+        templateUrl: 'templates/app/auth/log_05.html',
+        controller: 'AuthCtrl'
       })
 
       .state('app', {

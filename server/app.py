@@ -1,22 +1,31 @@
-import tornado.ioloop
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Basic run script"""
+
 import tornado.httpserver
+import tornado.ioloop
+import tornado.options
 import tornado.web
-import os
-import sys
-from handlers import *
+import tornado.autoreload
+from tornado.options import options
+import tornado.web
 
-# Set up current directory to program directory
-os.chdir(os.path.join(os.getcwd(), os.path.dirname(sys.argv[0])))
+from settings import settings
+from urls import url_patterns
 
-application = tornado.web.Application([
-    (r"/", tornado.web.RedirectHandler, {"url": "/gallery/"}),
-    (r"/gallery/(.*)", GalleryHandler),
-    (r"/preview/(small|large|medium)/(.+)", PreviewHandler),
-    (r"/download/(.+)", DownloadHandler),
-    (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "static"}),
-], template_path = "template", static_path = "static")
+
+class TornadoApplication(tornado.web.Application):
+
+    def __init__(self):
+        tornado.web.Application.__init__(self, url_patterns, **settings)
+
+
+def main():
+    app = TornadoApplication()
+    app.listen(options.port)
+    tornado.ioloop.IOLoop.current().start()
+
 
 if __name__ == "__main__":
-    http_server = tornado.httpserver.HTTPServer(application)
-    http_server.listen(8888)
-    tornado.ioloop.IOLoop.instance().start()
+    main()
