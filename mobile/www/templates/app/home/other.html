@@ -8,125 +8,138 @@
         background-color: #FFAF17;
       }
     </style>
-    <div style="text-align: center;">
-      <img src="img/ionic.png" style="border-radius: 50%;
-       border: 1px solid white; width: 80px; margin-top: 20px; margin-bottom: 15px;">
-      <p style="color: white; font-size: 22px; margin-bottom: 30px;">sunny大表姐</p>
+    <div style="text-align: center;background-image:url(img/background_2.png);background-repeat: no-repeat;background-size:cover">
+      <img src="img/head.png" style="border-radius: 50%;
+       border: 1px solid white; width: 100px; margin-top: 20px; margin-bottom: 15px;">
+      <div class=row >
+        <p style="color: white; font-size: 22px; margin-bottom: 30px;margin-left:100px">作死的小乌龟</p>
+        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:-3px;left:10px;">
+      </div>
+
     </div>
     <div class="row"
          style="text-align: center; padding-left: 10%; padding-right: 10%;
-          background-color: #8B5F0C; color: white; padding-top: 0; padding-bottom: 0;">
-      <div class="col" ng-click="select_tab(1)" ng-class="{tab_col_active:selected(1)}">5<br>旅程</div>
-      <div class="col" ng-click="select_tab(2)" ng-class="{tab_col_active:selected(2)}">15<br>收藏</div>
+          background-color:rgba(169,169,169,0.85); color: white; padding-top: 0; padding-bottom: 0;">
+      <div class="col" ng-click="select_tab(1)" ng-class="{tab_col_active:selected(1)}"  >5<br>旅程</div>
+      <div class="col" ng-click="select_tab(2)" ng-class="{tab_col_active:selected(2)}" >15<br>收藏</div>
       <div class="col" ng-click="select_tab(3)" ng-class="{tab_col_active:selected(3)}">77<br>关注</div>
-      <div class="col" ng-click="select_tab(4)" ng-class="{tab_col_active:selected(4)}">77<br>粉丝</div>
+      <div class="col" ng-click="select_tab(4)" ng-class="{tab_col_active:selected(4)}" >77<br>粉丝</div>
     </div>
     <ion-list ng-show="selected(1)">
-      <div class="item-dark card route-list">
-        <div class="item item-avatar item-balanced" style="border-width: 6px; border-color: #FFAF17;">
-          <img src="img/ionic.png">
-          <h2>秘密之旅</h2>
+      <div class="item-dark card route-list" >
+        <div class="item item-avatar item-balanced" style="border-width: 0px; border-color: #FFAF17;">
+          <img src="img/head.png">
+          <h2>秘密的旅程</h2>
           <p>春雨贵如湿哒哒 2015.11.02</p>
         </div>
-        <ion-slide-box style="height: 150px;">
+        <ion-slide-box style="height: 200px;">
           <ion-slide>
-            <div style="background-color: blue; height: 100%;"></div>
+            <div style="background-image:url(img/pic_1.png); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: red; height: 100%;"></div>
+            <div style="background-image:url(img/pic_2.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: yellow; height: 100%;"></div>
+            <div style="background-image:url(img/pic_3.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: green; height: 100%;"></div>
+            <div style="background-image:url(img/pic_4.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
         </ion-slide-box>
-        <div class="item item-body" style="padding: 0; border-width: 0;">
+        <div class="item item-body" style="padding: 10px; border-width: 10px;border-color:#383644">
           <img class="full-image" src="img/delorean.jpg">
         </div>
-        <div class="row" style="text-align: center;">
-          <div class="col">收藏</div>
-          <div class="col">评论</div>
-          <div class="col">赞</div>
+        <div class="row" style="text-align: center;background-color:#383644">
+          <div class="button-bar">
+            <img src="img/icon_1.png" style="width:25px;height:25px;position:relative;top:8px;left:13px;">
+            <a class="button button-clear">收藏 21</a>
+            <img src="img/icon_2.png" style="width:25px;height:25px;position:relative;top:8px;left:14px;">
+            <a class="button button-clear">评论 18</a>
+            <img src="img/icon_3.png" style="width:25px;height:25px;position:relative;top:8px;left:17px;">
+            <a class="button button-clear">赞 55</a>
+          </div>
         </div>
       </div>
     </ion-list>
     <ion-list ng-show="selected(2)">
       <div class="item-dark card route-list">
-        <div class="item item-avatar item-balanced" style="border-width: 6px; border-color: #FFAF17;">
-          <img src="img/ionic.png">
+        <div class="item item-avatar item-balanced" style="border-width: 0px; border-color: #FFAF17;">
+          <img src="img/head.png">
           <h2>秘密之旅</h2>
           <p>春雨贵如湿哒哒 2015.11.02</p>
         </div>
-        <ion-slide-box style="height: 150px;">
+        <ion-slide-box style="height: 200px;">
           <ion-slide>
-            <div style="background-color: blue; height: 100%;"></div>
+            <div style="background-image:url(img/pic_1.png); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: red; height: 100%;"></div>
+            <div style="background-image:url(img/pic_2.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: yellow; height: 100%;"></div>
+            <div style="background-image:url(img/pic_3.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
           <ion-slide>
-            <div style="background-color: green; height: 100%;"></div>
+            <div style="background-image:url(img/pic_4.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
         </ion-slide-box>
         <div class="item item-body" style="padding: 0; border-width: 0;">
           <img class="full-image" src="img/delorean.jpg">
         </div>
-        <div class="row" style="text-align: center;">
-          <div class="col">收藏</div>
-          <div class="col">评论</div>
-          <div class="col">赞</div>
+        <div class="row" style="text-align: center;background-color:#383644">
+          <div class="button-bar">
+            <img src="img/icon_1.png" style="width:25px;height:25px;position:relative;top:8px;left:13px;">
+            <a class="button button-clear">收藏 21</a>
+            <img src="img/icon_2.png" style="width:25px;height:25px;position:relative;top:8px;left:14px;">
+            <a class="button button-clear">评论 18</a>
+            <img src="img/icon_3.png" style="width:25px;height:25px;position:relative;top:8px;left:17px;">
+            <a class="button button-clear">赞 55</a>
+          </div>
         </div>
       </div>
     </ion-list>
     <ion-list ng-show="selected(3)">
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        作死的小乌龟
+        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        Mr.holiday
+        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        Jying1994
+        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        PK
+        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
     </ion-list>
     <ion-list ng-show="selected(4)">
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        Jying1994
+        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        春雨贵如施搭搭
+        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        作死的小乌龟
+        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
       <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/ionic.png">
-        <h2 style="color: #FFAF17;">gagagagaga</h2>
-        <p style="color: white;">粉丝: 2312</p>
+        <img src="img/head.png">
+        PK
+        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
     </ion-list>
   </ion-content>
 </ion-view>
-
