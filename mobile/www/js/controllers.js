@@ -179,9 +179,9 @@ angular.module('starter.controllers', ['baiduMap'])
        'imgSrc' : 'img/rest.png'
     }
 
-    $rootScope.waitting_state = waiting
-    $rootScope.runing_state = running
-    $rootScope.resting_state = resting
+    $rootScope.waitting_state = waiting;
+    $rootScope.runing_state = running;
+    $rootScope.resting_state = resting;
 
     $rootScope.state = waiting;
 
@@ -190,12 +190,23 @@ angular.module('starter.controllers', ['baiduMap'])
       {
         $state.go('app.tab.issue_event');
       }
-      $rootScope.state = running
+      $rootScope.state = running;
     }
   })
 
   .controller('IssueEventCtrl', function ($scope) {
 
+  })
+
+  .controller('NotifyCtrl', function ($scope,notifyProvider) {
+      $scope.notifications = notifyProvider.fetchNotifications();
+      $scope.delete = function(notification){
+        var newNotifications = $scope.notifications;
+        $scope.notifications = [];
+          newNotifications.forEach(function (elem) {
+            if(notification !== elem) $scope.notifications.push(elem);
+        });
+      }
   })
 
   .controller('AuthCtrl', function($scope, $state, $ionicConfig) {
