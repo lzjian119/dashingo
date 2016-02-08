@@ -8,29 +8,30 @@
   <style>
   </style>
   <ion-content padding="true" scroll="false">
-    <div style="height: 95%; background-color: white;">
+    <div style="height: 95%; background-color: white;border-radius:10px">
       <textarea id="comment-textarea" ng-model="comment.text"
                 style="height: 150px; width: 100%; margin-top: 10px; background-color: white;
-                 padding: 10px; font-size: 20px; line-height: 20px; border-bottom: 1px solid #aaa;"
+                 padding: 10px; font-size: 15px; line-height: 20px; border-bottom: 1px solid #aaa;
+                 margin-top:10px;border-radius:10px"
                 placeholder="遇到什么有趣的事情?">
       </textarea>
-      <div class="row" style="text-align: center;">
-        <div style="position: absolute; background-color: #ff9c26;
-         border-radius: 50%; color: white; height: 20px; width: 20px;
-         margin-left: -10px; margin-top: -10px;">
-          ×
-        </div>
-        <div class="col col-33" style="background-color: #E5E5E5; margin-right: 15px;">
-          <img src="img/ionic.png" style="width: 80%">
-          <p>添加照片</p></div>
-        <div class="col col-33" style="background-color: #E5E5E5;">
-          <div style="position: absolute; background-color: #ff9c26;
+      <div class="row" style="text-align: center;postion:relative">
+        <div class="col col-33" style="">
+          <div style="position: relative; background-color: #ff9c26;
            border-radius: 50%; color: white; height: 20px; width: 20px;
-           margin-left: -10px; margin-top: -10px;">
+           left:10px;top:10px">
             ×
           </div>
-          <img src="img/ionic.png" style="width: 80%;">
-          <p>按住录音</p></div>
+          <img src="img/take_photo.png" style="width:82px">
+        </div>
+        <div class="col col-33">
+          <div style="position: relative; background-color: #ff9c26;
+           border-radius: 50%; color: white; height: 20px; width: 20px;
+           left:10px;top:10px">
+            ×
+          </div>
+          <img src="img/sound_record.png" style="width:82px">
+        </div>
       </div>
     </div>
   </ion-content>

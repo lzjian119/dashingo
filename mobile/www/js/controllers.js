@@ -161,15 +161,29 @@ angular.module('starter.controllers', ['baiduMap'])
   .controller('TabCtrl', function ($scope, $rootScope, $state) {
     // 控制中间按钮
     // 0: 未开始
+    var waiting = {
+      'state' : 0,
+      'imgSrc' : 'img/go.png'
+    }
     // 1: 进行中
+    var running = {
+      'state' : 1,
+      'imgSrc' : 'img/record_spirit.png'
+    }
     // 2: 休息
-    $rootScope.state = 0;
+    var resting = {
+       'state' : 2,
+       'imgSrc' : 'img/rest.png'
+    }
+
+    $rootScope.state = waiting;
+
     $scope.change = function () {
-      if ($rootScope.state == 1)
+      if ($rootScope.state == running)
       {
         $state.go('app.tab.issue_event');
       }
-      $rootScope.state += 1;
+      $rootScope.state = running
     }
   })
 
