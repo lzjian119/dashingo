@@ -86,7 +86,10 @@ angular.module('starter.controllers', ['baiduMap'])
       $scope.hideFlag = !$scope.hideFlag;
     };
     $scope.check_state = function (index) {
-      return $rootScope.state == index;
+      return $rootScope.state == $rootScope.runing_state;
+    }
+    $scope.endTravel = function(){
+      $rootScope.state = $rootScope.waitting_state;
     }
   })
 
@@ -175,6 +178,10 @@ angular.module('starter.controllers', ['baiduMap'])
        'state' : 2,
        'imgSrc' : 'img/rest.png'
     }
+
+    $rootScope.waitting_state = waiting
+    $rootScope.runing_state = running
+    $rootScope.resting_state = resting
 
     $rootScope.state = waiting;
 
