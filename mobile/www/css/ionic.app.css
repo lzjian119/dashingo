@@ -9730,6 +9730,3 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-
-.ion-mobile:before {content: url("/img/mobile.png")}
-.ion-password:before {content: url("/img/password.png")}
