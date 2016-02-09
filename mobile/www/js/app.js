@@ -76,6 +76,12 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
         controller: 'AuthCtrl'
       })
 
+      .state('auth.log_07', {
+        url: '/log_07',
+        templateUrl: 'templates/app/auth/log_07.html',
+        controller: 'AuthCtrl'
+      })
+
       .state('app', {
         url: '/app',
         abstract: true,
