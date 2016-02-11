@@ -219,7 +219,8 @@ angular.module('starter.controllers', ['baiduMap'])
 
   })
 
-  .controller('ActivityCtrl', function ($scope) {
+  .controller('ActivityCtrl', function ($scope,$ionicSlideBoxDelegate) {
+    
     $scope.settings = {
       enableFriends: true
     };

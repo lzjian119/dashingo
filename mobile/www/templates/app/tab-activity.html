@@ -1,8 +1,17 @@
 <ion-view view-title="活动" style="background-color: #383644">
   <ion-content padding="false">
-    <ion-slide-box style="height: 150px;" scroll="false">
+    <div id="search-bar">
+      <div class="item item-input-inset" style="background-color: rgba(216,216,216,0.24);margin:0px;border:0px">
+        <label class="item-input-wrapper" id="search-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="搜索..." ng-model="query.value" ng-change="search()" ng-focus="back()">
+        </label>
+        <a ng-show="searching()" ng-click="clear()" style="margin-left: 10px; color: black;">取消</a>
+      </div>
+    </div>
+    <ion-slide-box style="height: 150px;" scroll="false" does-continue="true" slide-interval="2000" auto-play="true">
       <ion-slide>
-        <div style="background-color: blue; height: 100%;"></div>
+        <img src="img/activity_example_01.png" style="height:100%">
       </ion-slide>
       <ion-slide>
         <div style="background-color: red; height: 100%;"></div>
