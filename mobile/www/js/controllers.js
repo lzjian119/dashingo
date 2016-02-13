@@ -94,6 +94,38 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
   .controller('SquareCtrl', function ($scope) {
+
+    $scope.popularUsers = [
+      {
+        'name': '施搭搭',
+        'headImage': 'img/head.png'
+      },
+      {
+        'name': '作死的小乌龟',
+        'headImage': 'img/head.png'
+      },
+      {
+        'name': '吉莹',
+        'headImage': 'img/head.png'
+      },
+      {
+        'name': '春雨贵如油',
+        'headImage': 'img/head.png'
+      }
+    ];
+
+    $scope.popularTravels = [
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      }
+    ];
+
     $scope.query = {
       value: ''
     };
