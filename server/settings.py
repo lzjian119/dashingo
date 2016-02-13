@@ -15,3 +15,13 @@ settings["login_url"] = "/login"
 settings["static_path"] = os.path.join(os.path.dirname(__file__), "static")
 settings["template_path"] = os.path.join(os.path.dirname(__file__), "templates")
 settings["xsrf_cookies"] = False
+
+settings["DB_USER"] = "postgres"
+settings["DB_HOST"] = "120.55.160.237"
+settings['DB_PWD'] = "postgres"
+settings['DB_NAME'] = "dashingo"
+
+DB_HOST = '120.55.160.237'
+DB_USER = 'postgres'
+DB_PWD = 'postgres'
+DB_NAME = 'dashingo'

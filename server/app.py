@@ -11,18 +11,28 @@ import tornado.autoreload
 from tornado.options import options
 import tornado.web
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+
 from settings import settings
 from urls import url_patterns
 
 
-class TornadoApplication(tornado.web.Application):
+class Application(tornado.web.Application):
 
     def __init__(self):
         tornado.web.Application.__init__(self, url_patterns, **settings)
+        engine = create_engine('postgres://%s:%s@%s:5432/%s' %
+                       (settings['DB_USER'], settings['DB_PWD'],
+                        settings['DB_HOST'], settings['DB_NAME']))
+        self.db = scoped_session(
+                sessionmaker(bind=engine,
+                             autocommit=False, autoflush=True,
+                             expire_on_commit=False))
 
 
 def main():
-    app = TornadoApplication()
+    app = Application()
     app.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
 
