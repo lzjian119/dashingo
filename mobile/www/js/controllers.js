@@ -114,7 +114,7 @@ angular.module('starter.controllers', ['baiduMap'])
       }
     ];
 
-    $scope.popularTravels = [
+    $scope.popularRoutes = [
       {
         'title':'秘密之旅',
         'when':'2015.11.02',
@@ -181,6 +181,64 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
   .controller('LoadPathCtrl', function ($scope) {
+    $scope.selfRoutes = [
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      },
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      },
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      }
+    ];
+    $scope.recommendationRoutes = [
+      {
+        'title':'推荐行程',
+        'when':'2015.11.02',
+        'who':{
+          'name':'天气棒棒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      },
+      {
+        'title':'高分行程',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如油',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      },
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      }
+    ];
     $scope.tab = 1;
     $scope.select_tab = function (index) {
       $scope.tab = index;
@@ -191,6 +249,17 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
   .controller('TrendCtrl', function ($scope, $stateParams) {
+    $scope.trendRoutes = [
+      {
+        'title':'秘密之旅',
+        'when':'2015.11.02',
+        'who':{
+          'name':'春雨贵如湿哒哒',
+          'headImage':'img/head.png'
+        },
+        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
+      }
+    ];
   })
 
   .controller('TabCtrl', function ($scope, $rootScope, $state) {

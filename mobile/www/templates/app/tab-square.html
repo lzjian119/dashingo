@@ -202,19 +202,19 @@
       </ion-list>
 
       <ion-list>
-        <div class="item-dark card route-list" ng-repeat="travel in popularTravels">
+        <div class="item-dark card route-list" ng-repeat="route in popularRoutes">
           <div class="item item-avatar item-balanced" style="border-width: 0px; border-color: #FFAF17;">
-            <img src="{{travel.who.headImage}}">
+            <img src="{{route.who.headImage}}">
             <div class="row">
               <div class="col" style="position:relative;margin-top:-10px;margin-left:-15px">
-              <h2>{{travel.title}}</h2>
-              <p><span>{{travel.who.name}}  </span><span>{{travel.when}}</span></p>
+              <h2>{{route.title}}</h2>
+              <p><span>{{route.who.name}}  </span><span>{{route.when}}</span></p>
               </div>
               <img src="img/page_1.png" style="width:40px;height:10px">
             </div>
           </div>
           <ion-slide-box style="height: 200px;">
-            <ion-slide ng-repeat="pic in travel.pics">
+            <ion-slide ng-repeat="pic in route.pics">
               <div style="background-image:url({{pic}}); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
             </ion-slide>
           </ion-slide-box>
