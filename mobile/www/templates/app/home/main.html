@@ -25,30 +25,23 @@
       <div class="col" ng-click="select_tab(3)" ng-class="{tab_col_active:selected(3)}">77<br>关注</div>
       <div class="col" ng-click="select_tab(4)" ng-class="{tab_col_active:selected(4)}" >77<br>粉丝</div>
     </div>
+
+    <!-- self routes -->
     <ion-list ng-show="selected(1)"  >
-      <div class="item-dark card route-list" style="border-radius: 10px;">
+      <div class="item-dark card route-list" style="border-radius: 10px;" ng-repeat="route in selfRoutes">
         <div class="item item-avatar item-balanced" style="border-width: 0px; border-color: #FFAF17;border-radius: 10px;">
-          <img src="img/head.png">
+          <img src="{{route.who.headImage}}">
           <div class="row">
             <div class="col" style="position:relative;margin-top:-10px;margin-left:-15px">
-            <h2>秘密之旅</h2>
-            <p>春雨贵如湿哒哒 2015.11.02</p>
+              <h2>{{route.title}}</h2>
+              <p><span>{{route.who.name}}  </span><span>{{route.when}}</span></p>
             </div>
             <img src="img/page_1.png" style="width:40px;height:10px">
           </div>
         </div>
         <ion-slide-box style="height: 200px;">
-          <ion-slide>
-            <div style="background-image:url(img/pic_1.png); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_2.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_3.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_4.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
+          <ion-slide ng-repeat="pic in route.pics">
+            <div style="background-image:url({{pic}}); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
         </ion-slide-box>
         <div class="row" style="text-align: center;background-color:#383644">
@@ -63,35 +56,25 @@
         </div>
       </div>
     </ion-list>
-    <ion-list ng-show="selected(2)">
-      <div class="item-dark card route-list" style="border-radius: 10px;">
+
+    <!-- collection route -->
+    <ion-list ng-show="selected(2)"  >
+      <div class="item-dark card route-list" style="border-radius: 10px;" ng-repeat="route in selfRoutes">
         <div class="item item-avatar item-balanced" style="border-width: 0px; border-color: #FFAF17;border-radius: 10px;">
-          <img src="img/head.png">
+          <img src="{{route.who.headImage}}">
           <div class="row">
             <div class="col" style="position:relative;margin-top:-10px;margin-left:-15px">
-            <h2>秘密之旅</h2>
-            <p>春雨贵如湿哒哒 2015.11.02</p>
+              <h2>{{route.title}}</h2>
+              <p><span>{{route.who.name}}  </span><span>{{route.when}}</span></p>
             </div>
             <img src="img/page_1.png" style="width:40px;height:10px">
           </div>
         </div>
         <ion-slide-box style="height: 200px;">
-          <ion-slide>
-            <div style="background-image:url(img/pic_1.png); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_2.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_3.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
-          </ion-slide>
-          <ion-slide>
-            <div style="background-image:url(img/pic_4.jpg); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
+          <ion-slide ng-repeat="pic in route.pics">
+            <div style="background-image:url({{pic}}); height: 100%;background-position: center;background-size:contain;background-repeat: no-repeat;"></div>
           </ion-slide>
         </ion-slide-box>
-        <div class="item item-body" style="padding: 0; border-width: 0;">
-          <img class="full-image" src="img/delorean.jpg">
-        </div>
         <div class="row" style="text-align: center;background-color:#383644">
           <div class="button-bar">
             <img src="img/icon_1.png" style="width:25px;height:25px;position:relative;top:8px;left:13px;">
@@ -104,48 +87,23 @@
         </div>
       </div>
     </ion-list>
+
+
+    <!-- followings -->
     <ion-list ng-show="selected(3)">
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        作死的小乌龟
-        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        Mr.holiday
-        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        Jying1994
-        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        PK
-        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
+      <a class="item item-dark item-avatar" ui-sref="app.home_other" ng-repeat="following in followings">
+        <img src="{{following.headImage}}">
+        {{following.name}}
+        <img src="{{getGenderImage(following.gender)}}" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
     </ion-list>
+
+    <!-- followers -->
     <ion-list ng-show="selected(4)">
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        Jying1994
-        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        春雨贵如施搭搭
-        <img src="img/manicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        作死的小乌龟
-        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
-      </a>
-      <a class="item item-dark item-avatar" ui-sref="app.home_other">
-        <img src="img/head.png">
-        PK
-        <img src="img/womanicon.png" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
+      <a class="item item-dark item-avatar" ui-sref="app.home_other" ng-repeat="following in followers">
+        <img src="{{following.headImage}}">
+        {{following.name}}
+        <img src="{{getGenderImage(following.gender)}}" style="width:25px;height:25px;position:relative;top:8px;left:5px;">
       </a>
     </ion-list>
   </ion-content>

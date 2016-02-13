@@ -153,7 +153,21 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
 
-  .controller('HomePageCtrl', function ($scope) {
+  .controller('HomePageCtrl', function ($scope,userInformation) {
+
+    $scope.selfRoutes = userInformation.getAllRoutes();
+
+    $scope.followings = userInformation.getFollowings();
+
+    $scope.followers = userInformation.getFollowers();
+
+    $scope.getGenderImage = function(gender){
+      if (gender == 0)
+        return 'img/manicon.png';
+      else
+        return 'img/womanicon.png';
+    }
+    
     $scope.query = {
       value: ''
     };
@@ -180,36 +194,10 @@ angular.module('starter.controllers', ['baiduMap'])
     };
   })
 
-  .controller('LoadPathCtrl', function ($scope) {
-    $scope.selfRoutes = [
-      {
-        'title':'秘密之旅',
-        'when':'2015.11.02',
-        'who':{
-          'name':'春雨贵如湿哒哒',
-          'headImage':'img/head.png'
-        },
-        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
-      },
-      {
-        'title':'秘密之旅',
-        'when':'2015.11.02',
-        'who':{
-          'name':'春雨贵如湿哒哒',
-          'headImage':'img/head.png'
-        },
-        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
-      },
-      {
-        'title':'秘密之旅',
-        'when':'2015.11.02',
-        'who':{
-          'name':'春雨贵如湿哒哒',
-          'headImage':'img/head.png'
-        },
-        'pics':['img/pic_1.png','img/pic_2.jpg','img/pic_3.jpg','img/pic_4.jpg']
-      }
-    ];
+  .controller('LoadPathCtrl', function ($scope, userInformation) {
+
+    $scope.selfRoutes = userInformation.getAllRoutes();
+
     $scope.recommendationRoutes = [
       {
         'title':'推荐行程',
