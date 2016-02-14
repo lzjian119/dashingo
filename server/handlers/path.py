@@ -20,7 +20,6 @@ class EventHandler(AuthHandler):
         e = orm.Event(rid, con, pos, lat, lng, pic, tape)
         self.db.add(e)
         self.db.commit()
-        return self.write(self.response)
 
     def delete(self):
         return self.write(self.response)

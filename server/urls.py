@@ -8,6 +8,7 @@ url_patterns = [
     (r"/register", user.RegisterHandler),
     (r"/login", user.LoginHandler),
     (r"/password", user.PasswordHandler),
+    (r"/info", user.InfoHandler),
     (r"/follow", user.FollowHandler),
     (r"/like", com.LikeHandler),
     (r"/comment", route.CommentHandler),

@@ -320,6 +320,13 @@ class RouteComment(Base):
     # 创建时间
     create_time = Column(TIMESTAMP, default=now_datetime)
 
+    def __init__(self, uid, rid, content, aid=None):
+        self.uid = uid
+        if aid:
+           self.aid = aid
+        self.rid = rid
+        self.content = content
+
 
 class AdminFeedback(Base):
     # 意见反馈

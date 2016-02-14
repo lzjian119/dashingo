@@ -71,9 +71,9 @@ class PositionHandler(AuthHandler):
         r = self.db.query(orm.UserAddr.uid, func.ST_Distance(orm.UserAddr.pos, pos), orm.UserAddr.lat,
                           orm.UserAddr.lng, orm.UserInfo.avatar, orm.UserInfo.nickname)\
             .filter(func.ST_DWithin(orm.UserAddr.pos, pos, 5000))\
-            .join(orm.UserInfo, orm.UserAddr.uid == orm.UserInfo.uid)\
+            .filter(orm.UserAddr.uid == orm.UserInfo.uid)\
             .all()
-        self.response['data'] = r
+        self.response['data'] = [dict(zip(u.keys(), u)) for u in r]
         return self.write(self.response)
 
 
@@ -84,9 +84,9 @@ class LikeHandler(AuthHandler):
         t = self.get_argument('type')
         r = self.db.query(orm.UserInfo.uid, orm.UserInfo.nickname, orm.UserInfo.avatar)\
             .filter(orm.UserLike.lid == lid and orm.UserLike.type == t)\
-            .join(orm.UserLike, orm.UserInfo.uid == orm.UserLike.uid)\
+            .filter(orm.UserInfo.uid == orm.UserLike.uid)\
             .all()
-        self.response['data'] = r
+        self.response['data'] = [dict(zip(u.keys(), u)) for u in r]
         return self.write(self.response)
 
     def delete(self):
@@ -101,6 +101,10 @@ class LikeHandler(AuthHandler):
         t = self.get_argument('type')
         self.write(self.response)
         self.finish()
+        if self.db.query(orm.UserLike)\
+                .filter(orm.UserLike.uid == self.id and orm.UserLike.lid == lid and orm.UserLike.type == t)\
+                .first():
+            return
         like = orm.UserLike(self.id, lid, t)
         self.db.add(like)
         self.db.commit()

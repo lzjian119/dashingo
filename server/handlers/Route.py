@@ -3,7 +3,8 @@
 import models.orm as orm
 import common.verify as verify
 from base import BlankHandler, StatelessHandler, AuthHandler
-
+import json
+from utils.tool import AlchemyEncoder
 
 class RouteHandler(AuthHandler):
 
@@ -24,28 +25,34 @@ class RouteHandler(AuthHandler):
         self.finish()
 
 
-class CommentHandler(StatelessHandler):
+class CommentHandler(AuthHandler):
 
     def get(self):
+        rid = self.get_argument('rid')
+        r = self.db.query(orm.RouteComment.uid, orm.RouteComment.aid,
+                          orm.RouteComment.content,
+                          orm.UserInfo.nickname, orm.UserInfo.avatar)\
+            .filter(orm.UserInfo.uid == orm.RouteComment.uid)\
+            .filter(orm.RouteComment.rid == rid).all()
+        self.response['data'] = [dict(zip(u.keys(), u)) for u in r]
         return self.write(self.response)
 
     def delete(self):
-        return self.write(self.response)
-
-    def post(self):
-        phone = self.get_query_argument('phone')
-        pwd = self.get_query_argument('pwd')
-        captcha = self.get_query_argument('captcha')
-        if not verify.valid_phone(phone):
-            return self.error(301, 'Invalid phone')
-        if self.db.query(orm.User).\
-                filter(orm.User.phone == phone).first():
-            return self.error(302, 'Registered phone')
-        if not verify.valid_pwd(pwd):
-            return self.error(303, 'Invalid password')
-        if not verify.Captcha(phone).check(captcha):
-            return self.error(304, 'Wrong captcha')
-        user = orm.User(phone, pwd)
+        rid = self.get_argument('rid')
+        aid = self.get_argument('aid')
+        content = self.get_argument('content')
+        self.write(self.response)
+        self.finish()
+        user = orm.RouteComment(self.id, rid, content, aid)
         self.db.add(user)
         self.db.commit()
-        return self.write(self.response)
+
+    def post(self):
+        rid = self.get_argument('rid')
+        aid = self.get_argument('aid')
+        content = self.get_argument('content')
+        self.write(self.response)
+        self.finish()
+        user = orm.RouteComment(self.id, rid, content, aid)
+        self.db.add(user)
+        self.db.commit()

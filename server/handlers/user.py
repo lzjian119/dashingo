@@ -40,6 +40,17 @@ class RegisterHandler(StatelessHandler):
 
 class InfoHandler(AuthHandler):
 
+    def get(self):
+        uid = self.get_argument('uid')
+        id = uid
+        if not id:
+            id = self.id
+        r = self.db.query(orm.UserInfo.uid, orm.UserInfo.nickname)\
+            .filter(orm.UserInfo.uid == id)\
+            .first()
+        self.response['data'] = r
+        return self.write(self.response)
+
     def patch(self, *args, **kwargs):
         nickname = self.get_argument('nickname')
         gender = self.get_argument('gender')
@@ -49,12 +60,16 @@ class InfoHandler(AuthHandler):
         weight = self.get_argument('weight')
         self.write(self.response)
         self.finish()
-        self.db.update(orm.UserInfo)\
-            .where(orm.UserInfo.id == self.id)\
-            .value(
-                nickname=nickname, gender=gender, avatar=avatar,
-                birth=birth, height=height, weight=weight
-            )
+        r = self.db.query(orm.UserInfo)\
+            .filter(orm.UserInfo.uid == self.id)\
+            .first()
+        r.nickname = nickname
+        r.gender = gender
+        r.avatar = avatar
+        r.birth = birth
+        r.height = height
+        r.weight = weight
+        self.db.commit()
 
 
 class LoginHandler(StatelessHandler):
@@ -84,23 +99,21 @@ class PasswordHandler(StatelessHandler):
         if not verify.Captcha(phone).check(captcha):
             return self.error(303, 'Wrong captcha')
         r = self.db.query(orm.User)\
-            .filter(orm.User.phone == phone).one_or_none()
+            .filter(orm.User.phone == phone).first()
         if not r:
             return self.error(301, 'Nonexistent phone')
-        self.db.update(orm.User)\
-            .where(orm.User.phone == phone)\
-            .values(pwd=password)
+        r.pwd = md5(password + r.salt)
         return self.write(self.response)
 
 
 class FollowHandler(AuthHandler):
 
     def get(self):
-        r = self.db.query(orm.UserInfo.uid, orm.UserInfo.nickname)\
+        r = self.db.query(orm.UserInfo.uid, orm.UserInfo.nickname, orm.UserInfo.avatar)\
             .filter(orm.UserFollow.uid == self.id)\
-            .join(orm.UserFollow, orm.UserFollow.fid == orm.UserInfo.uid)\
+            .filter(orm.UserFollow.fid == orm.UserInfo.uid)\
             .all()
-        self.response['data'] = r
+        self.response['data'] = [dict(zip(u.keys(), u)) for u in r]
         return self.write(self.response)
 
     def post(self):
@@ -112,7 +125,7 @@ class FollowHandler(AuthHandler):
             return
         if self.db.query(orm.UserFollow)\
             .filter(orm.UserFollow.uid == self.id and orm.UserFollow.fid == fid)\
-            .count():
+            .first():
             return
         self.db.add(f)
         self.db.commit()
@@ -122,6 +135,9 @@ class FollowHandler(AuthHandler):
         fid = self.get_argument('fid')
         self.write(self.response)
         self.finish()
-        self.db.delete().\
-            where(orm.UserFollow.uid == self.id and orm.UserFollow.fid == fid)
+        r = self.db.query(orm.UserFollow).\
+            filter(orm.UserFollow.uid == self.id and orm.UserFollow.fid == fid)\
+            .first()
+        if r:
+            r.delete()
         return
