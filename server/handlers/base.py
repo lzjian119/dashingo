@@ -5,6 +5,8 @@ import common.verify as verify
 
 import time
 
+API_VERSION = 1
+
 class BlankHandler(tornado.web.RequestHandler):
 
     response = {}
@@ -74,8 +76,13 @@ class AuthHandler(tornado.web.RequestHandler):
         }
         self.start = time.time()
         api_key = self.request.headers['api_key']
+        version = self.request.headers['version']
+        if not version:
+            return self.error(201, 'Lack headers: version')
+        if int(version) != API_VERSION:
+            return self.error(204, 'Wrong version')
         if not api_key:
-            return self.error(201, 'Lack headers')
+            return self.error(201, 'Lack headers: api_key')
         self.id = verify.Auth().check(api_key)
         if not self.id:
             return self.error(203, 'Invalid APIkey')
