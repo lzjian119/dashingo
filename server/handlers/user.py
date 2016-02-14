@@ -37,6 +37,7 @@ class RegisterHandler(StatelessHandler):
         self.db.commit()
         return
 
+
 class InfoHandler(AuthHandler):
 
     def patch(self, *args, **kwargs):

@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import \
     INTERVAL, JSON, JSONB, MACADDR, NUMERIC, OID, REAL, SMALLINT, TEXT, \
     TIME, TIMESTAMP, UUID, VARCHAR, INT4RANGE, INT8RANGE, NUMRANGE, \
     DATERANGE, TSRANGE, TSTZRANGE, TSVECTOR
-# from geoalchemy2 import Geometry
+from geoalchemy2 import Geometry, Geography, WKTElement
 
 from utils.tool import md5, random_str, now_datetime
 
@@ -100,7 +100,8 @@ class UserAddr(Base):
     # 纬度
     lng = Column(FLOAT, default=0)
     # 地理位置
-    # pos = Column(Geometry('POLYGON'))
+    pos = Column(Geography(geometry_type='POINT', srid=4326),
+                 default=WKTElement('POINT(0 0)', srid=4326))
     # 更新时间
     update_time = Column(TIMESTAMP, default=now_datetime())
 
@@ -159,7 +160,7 @@ class UserNotification(Base):
     # 内容
     content = Column(VARCHAR(150))
     # 状态, Y/N - 已读/未读
-    state = Column(CHAR(2))
+    state = Column(CHAR(1), default='N')
     # 额外信息
     # 例如: {"img":"","content":"",}
     extra = Column(JSON)
@@ -203,18 +204,21 @@ class UserLike(Base):
     uid = Column(INTEGER)
     # 点赞对象id
     lid = Column(INTEGER)
-    # 点赞对象类型, ROUTE/USER/COMMENT
+    # 点赞对象类型, RO/US/CO - ROUTE/USER/COMMENT
     type = Column(CHAR(2))
 
-    def __init__(self, uid, lid):
+    def __init__(self, uid, lid, type):
         self.uid = uid
         self.lid = lid
+        self.type = type
 
 
 class Route(Base):
     # 旅程
     __tablename__ = 'route'
     id = Column(INTEGER, primary_key=True, autoincrement=True)
+    # 用户id
+    uid = Column(INTEGER)
     # 距离
     distance = Column(FLOAT)
     # 总时间
@@ -233,8 +237,8 @@ class Route(Base):
     title = Column(VARCHAR(32))
     # 描述文字
     description = Column(VARCHAR(150))
-    # 状态
-    state = Column(CHAR(5))
+    # 状态, N/Y/D - 未发布/已发布/删除
+    state = Column(CHAR(1), default='N')
     # 收藏个数
     star_num = Column(SMALLINT)
     # 评论条数
@@ -317,16 +321,6 @@ class RouteComment(Base):
     create_time = Column(TIMESTAMP, default=now_datetime)
 
 
-class RouteLike(Base):
-    # 旅程点赞
-    __tablename__ = 'route_like'
-    id = Column(INTEGER, primary_key=True, autoincrement=True)
-    # 用户id
-    uid = Column(INTEGER)
-    # 旅程id
-    rid = Column(INTEGER)
-
-
 class AdminFeedback(Base):
     # 意见反馈
     __tablename__ = 'admin_feedback'
@@ -366,5 +360,4 @@ engine = create_engine('postgres://%s:%s@%s:5432/%s' %
 
 session = sessionmaker()
 session.configure(bind=engine)
-Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)

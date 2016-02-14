@@ -18,6 +18,9 @@ fileConfig(config.config_file_name)
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
+
+import sys
+sys.path.append("/Users/LuHao/Documents/dashingo/server")
 from models.orm import Base
 target_metadata = Base.metadata
 
