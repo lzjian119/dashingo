@@ -1,19 +1,21 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content class="post-size-14px">
-    <ion-nav-bar class="bar app-top-bar bar-positive" align-title="center">
-      <ion-nav-back-button>返回
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
       </ion-nav-back-button>
+
       <ion-nav-buttons side="left">
+        <!-- <button class="button button-icon button-clear ion-person" menu-toggle="left">
+        </button> -->
         <button class="button button-icon button-clear ion-person" menu-toggle="left">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="main-content"></ion-nav-view>
   </ion-side-menu-content>
-  <ion-side-menu side="left" class="main-menu" expose-aside-when="large" style="background: #27384B">
-    <ion-content overflow-scroll="true">
+  <ion-side-menu side="left" expose-aside-when="large" style="background: #27384B">
+    <ion-content>
       <ion-list>
-        <!--<a class="item item-calm" ng-click="login()" style="border: none; text-align: center;" ui-sref="app.home">-->
         <a class="item item-calm" style="border: none; text-align: center;">
           <img src="img/head_img.png" style="width: 40%; border-radius: 50%; border: 2px solid white;">
           <p style="color: white; font-size: 20px; margin-top: 10px; margin-bottom: 10px;">春风贵如湿哒哒</p>
@@ -30,25 +32,29 @@
             </div>
           </div>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.home">
-          <i class="icon ion-ios-location-outline royal" style="padding-left: 10%;"></i>
-          <span style="padding-left: 10%;">我的主页</span>
+        <ion-item class="item-calm" style="border: none;position:relative;left:0px;top:15px;" menu-close href="#/app/tab/home">
+          <img src="img/menu-home.png"/ style="width:22px;position:relative;left:10px;top:5px;">
+          <span style="margin-left:20px">主界面</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()">
-          <i class="icon ion-ios-star-outline balanced" style="padding-left: 8%;"></i>
-          <span style="padding-left: 8%;">等级权限</span>
+        <ion-item class="item-calm" style="border: none;position:relative;left:0px;top:5px;" menu-close href="#/app/home">
+          <img src="img/menu-home.png"/ style="width:22px;position:relative;left:10px;top:5px">
+          <span style="margin-left:20px">我的主页</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.draft">
-          <i class="icon ion-ios-box-outline assertive" style="padding-left: 10%;"></i>
-          <span style="padding-left: 10%;">草稿箱</span>
+        <ion-item class="item-calm" style="border: none;" menu-close>
+          <img src="img/menu-level.png"/ style="width:24px;position:relative;left:10px;top:5px">
+          <span style="margin-left:20px">等级权限</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.notify">
-          <i class="icon ion-ios-email-outline stable" style="padding-left: 10%;"></i>
-          <span style="padding-left: 10%;">消息通知</span>
+        <ion-item class="item-calm" style="border: none;" menu-close href="#/app/draft">
+          <img src="img/menu-draft.png"/ style="width:24px;position:relative;left:10px;top:5px">
+          <span style="margin-left:20px">草稿箱</span>
         </ion-item>
-        <ion-item class="item-icon-left item-calm" style="border: none;" ng-click="closeMenu()" ui-sref="app.setting">
-          <i class="icon ion-ios-gear-outline" style="padding-left: 10%;"></i>
-          <span style="padding-left: 10%;">设置</span>
+        <ion-item class="item-calm" style="border: none;" menu-close href="#/app/notify">
+          <img src="img/menu-notify.png"/ style="width:24px;position:relative;left:10px;top:5px">
+          <span style="margin-left:20px">消息通知</span>
+        </ion-item>
+        <ion-item class="item-calm" style="border: none;" menu-close href="#/app/setting">
+          <img src="img/menu-setting.png"/ style="width:24px;position:relative;left:10px;top:5px">
+          <span style="margin-left:20px">设置</span>
         </ion-item>
       </ion-list>
     </ion-content>
