@@ -29,6 +29,7 @@ class Application(tornado.web.Application):
                 sessionmaker(bind=engine,
                              autocommit=False, autoflush=True,
                              expire_on_commit=False))
+        print "Server running on: " + str(options.port)
 
 
 def main():

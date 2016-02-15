@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+from tornado.web import StaticFileHandler
+from settings import settings
 from handlers import com, user, route, path
 
 url_patterns = [
@@ -16,4 +17,5 @@ url_patterns = [
     (r"/path", path.PathHandler),
     (r"/position", com.PositionHandler),
     (r"/photo", com.PhotoHandler),
+    (r"/(API\.md)", StaticFileHandler, dict(path=settings['static_path'])),
 ]
