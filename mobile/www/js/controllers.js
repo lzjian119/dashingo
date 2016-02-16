@@ -285,9 +285,19 @@ angular.module('starter.controllers', ['baiduMap'])
 
   .controller('IssueEventCtrl', function ($scope, Camera) {
 
+    $scope.photos = [];
+    $scope.delete = function(photo) {
+      var newPhotos = [];
+      $scope.photos.forEach(function(elem){
+        if(elem !== photo) newPhotos.push(elem);
+      });
+      $scope.photos = newPhotos;
+    }
+
     $scope.getPhoto = function() {
       Camera.getPicture().then(function(imageURI) {
         console.log(imageURI);
+        $scope.photos.push(imageURI)
       }, function(err) {
           console.err(err);
         });
