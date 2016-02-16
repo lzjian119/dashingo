@@ -15,19 +15,19 @@
                  margin-top:10px;border-radius:10px"
                 placeholder="遇到什么有趣的事情?">
       </textarea>
-      <div style="text-align:center;padding:10px">
+      <div style="text-align:center;padding-top:10px">
           <div ng-repeat="photo in photos" style="position:relative;width:82px;display:inline-block">
             <div style="position:absolute; background-color: #ff9c26;
              border-radius: 50%; color: white; height: 20px; width: 20px;
              left:0px;top:0px" ng-click="delete(photo)">
               ×
             </div>
-            <img ng-src="{{photo}}" style="width:82px;height:82px">
+            <img ng-src="{{photo}}" style="width:82px;height:82px;padding:2px">
           </div>
       </div>
       <div class="row" style="text-align: center;postion:relative">
         <div class="col col-33" style="">
-          <img src="img/take_photo.png" style="width:82px" ng-click="getPhoto()">
+          <img src="img/take_photo.png" style="width:82px" ng-click="showActionSheet()">
         </div>
         <div class="col col-33">
           <img src="img/sound_record.png" style="width:82px">

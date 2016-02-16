@@ -283,7 +283,12 @@ angular.module('starter.controllers', ['baiduMap'])
     }
   })
 
-  .controller('IssueEventCtrl', function ($scope, Camera) {
+  .controller('IssueEventCtrl', function ($scope, Camera, $ionicActionSheet, $timeout) {
+
+    var _photolibrary = 0;
+    var _camera = 1;
+    var sourceType = _camera;
+
 
     $scope.photos = [];
     $scope.delete = function(photo) {
@@ -295,13 +300,41 @@ angular.module('starter.controllers', ['baiduMap'])
     }
 
     $scope.getPhoto = function() {
-      Camera.getPicture().then(function(imageURI) {
+      Camera.getPicture({ sourceType: sourceType}).then(function(imageURI) {
         console.log(imageURI);
         $scope.photos.push(imageURI)
       }, function(err) {
           console.err(err);
         });
     };
+
+    $scope.showActionSheet = function() {
+
+      // Show the action sheet
+      var hideSheet = $ionicActionSheet.show({
+        buttons: [
+          { text: '拍照' },
+          { text: '从相册中选取' }
+        ],
+        titleText: '选取照片',
+        cancelText: '取消',
+        cancel: function() {
+            // add cancel code..
+          },
+        buttonClicked: function(index) {
+          if (index == 0) sourceType = _camera;
+          else sourceType = _photolibrary
+          $scope.getPhoto();
+          return true;
+      }
+      });
+
+   // For example's sake, hide the sheet after two seconds
+   $timeout(function() {
+     hideSheet();
+   }, 2000);
+
+ };
 
   })
 
