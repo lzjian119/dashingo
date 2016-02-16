@@ -167,7 +167,7 @@ angular.module('starter.controllers', ['baiduMap'])
       else
         return 'img/womanicon.png';
     }
-    
+
     $scope.query = {
       value: ''
     };
@@ -283,7 +283,15 @@ angular.module('starter.controllers', ['baiduMap'])
     }
   })
 
-  .controller('IssueEventCtrl', function ($scope) {
+  .controller('IssueEventCtrl', function ($scope, Camera) {
+
+    $scope.getPhoto = function() {
+      Camera.getPicture().then(function(imageURI) {
+        console.log(imageURI);
+      }, function(err) {
+          console.err(err);
+        });
+    };
 
   })
 
