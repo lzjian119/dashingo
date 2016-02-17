@@ -7,6 +7,12 @@
     <span>性别</span>
   </ion-nav-title>
 
+  <style>
+    a.button-complete-false{
+      background-color:#d8d8d8 !important;
+    }
+  </style>
+
   <ion-content scroll="false">
 
     <div class="row">
@@ -19,9 +25,9 @@
             年龄
           </p>
           <div class="row">
-            <a class="button button-icon"  style="width:80px;height:80px;background-image:url(img/womanoff.png);background-repeat: no-repeat;background-size:contain;margin-left:20px">
+            <a class="button button-icon" ng-click="selectFemale()" style="width:80px;height:80px;background-image:{{'url('+womanImage+')'}};background-repeat: no-repeat;background-size:contain;margin-left:20px">
             </a>
-            <a class="button button-icon"  style="width:80px;height:80px;background-image:url(img/manoff.png);background-repeat: no-repeat;background-size:contain;margin-left:50px">
+            <a class="button button-icon" ng-click="selectMale()" style="width:80px;height:80px;background-image:{{'url('+manImage+')'}};background-repeat: no-repeat;background-size:contain;margin-left:50px">
             </a>
           </div>
           <div class="row">
@@ -35,7 +41,7 @@
 
           <div class="bottom-content row">
             <div class="col col-center" style="text-align:center">
-              <a class="button button-positive" style="width:80%;border-radius:40px;background-color:#d8d8d8" class="completed-false" ui-sref="auth.log_06">
+              <a class="button button-positive  button-complete-{{isPickGender}}" style="width:80%;border-radius:40px;" class="completed-false" ui-sref="auth.log_06">
                   下一步 1/3
               </a>
             </div>

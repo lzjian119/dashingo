@@ -350,9 +350,84 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
   .controller('AuthCtrl', function($scope, $state, $ionicConfig) {
+
+    //for the gender , 0 is female, 1 is male
+    $scope.signUp = {
+      account: '',
+      password: '',
+      validate: '',
+      userName: '',
+      gender:'',
+      age:'',
+      weight:'',
+      height:'',
+    }
+
+    $scope.isPickGender = false;
+
+    $scope.womanImage = 'img/womanoff.png'
+
+    $scope.manImage = 'img/manoff.png'
+
+    $scope.isValidationForPhone = function(){
+      return false;
+    };
+
+    $scope.selectFemale = function(){
+      $scope.isPickGender = true;
+      $scope.womanImage = 'img/womanon.png'
+      $scope.signUp.gender = 0;
+      if($scope.isPickGender)  $scope.manImage = 'img/manoff.png';
+    }
+
+    $scope.selectMale = function(){
+      $scope.isPickGender = true;
+      $scope.manImage = 'img/manon.png';
+      $scope.signUp.gender = 1;
+      if($scope.isPickGender) $scope.womanImage = 'img/womanoff.png'
+    }
+
+    $scope.isAgeValidate = function(){
+      if ($scope.signUp.age != '') return true;
+      else return false;
+    }
+
+    $scope.isShapeValidate = function(){
+      if($scope.signUp.weight != '' && $scope.signUp.height != '') return true;
+      else return false;
+    }
+
+    $scope.isUserNameValidate = function() {
+      if ($scope.signUp.userName != '')
+        return true;
+      else
+        return false;
+    };
+
+    $scope.completeSignUp = function(){
+      $state.go('app.tab.home');
+    }
+
     $scope.jump = function(index) {
       $state.go('auth.log_0'+index);
     }
+
+  })
+
+  .controller('LoginCtrl', function($scope) {
+
+    $scope.user = {
+      userAccount: '',
+      userPassword: ''
+    }
+
+    $scope.validate = function(){
+      if($scope.user.userPassword != '' && $scope.user.userAccount != '')
+        return true;
+      else
+        return false;
+    }
+
   })
 
   .controller('walkthroughCtrl', function($scope, $ionicConfig) {
@@ -360,7 +435,6 @@ angular.module('starter.controllers', ['baiduMap'])
   })
 
   .controller('ActivityCtrl', function ($scope,$ionicSlideBoxDelegate) {
-
     $scope.settings = {
       enableFriends: true
     };

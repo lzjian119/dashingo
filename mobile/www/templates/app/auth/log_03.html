@@ -3,29 +3,53 @@
           box-shadow: none !important;
           margin-top:15%;">
 
+
   <ion-nav-title>
-    <span>密码</span>
+    <span>验证手机</span>
   </ion-nav-title>
+
+  <style>
+    a.button-complete-false{
+      background-color:#d8d8d8 !important;
+    }
+  </style>
 
   <ion-content scroll="false">
 
     <div class="content has-tabs-top">
       <div class="col col col-80 col-offset-10">
-          <label class="item item-input">
+          <label class="item item-input" style="border-radius:5px">
             <img src="img/mobile.png" style="width:10px">
-            <input type="text" placeholder="输入手机号" style="margin-left:15px;height:48px">
+            <input type="text" ng-model="signUp.account" placeholder="输入手机号" style="margin-left:15px;height:48px;">
           </label>
-          <label class="item item-input" style="margin-top:25px;">
-            <img src="img/password.png" style="width:10px">
-            <input type="password" placeholder="设置一个密码" style="margin-left:15px;height:48px">
+          <label class="item item-input" style="margin-top:25px;border-radius:5px">
+              <img src="img/password.png" style="width:10px">
+            <input type="password" ng-model="signUp.password" placeholder="设置一个密码" style="margin-left:15px;height:48px">
           </label>
       </div>
-          <div class="bottom-content row">
-            <div class="col col-center" style="text-align:center">
-              <a class="button" style="background-image:url(img/logup_off.png);background-repeat: no-repeat;background-size:contain;margin-top:20px;width:250px;background-color:transparent"  ui-sref="auth.log_04">
-              </a>
-            </div>
-          </div>
+
+      <div class="row">
+        <div class="col col-60 col-offset-10">
+          <label class="item item-input" style="margin-top:20px;border-radius:5px">
+            <input type="number" ng-model="signUp.validate" placeholder="验证码" style="height:48px">
+          </label>
+        </div>
+
+        <div class="col col-30">
+          <button class="button button-clear button-positive" style="margin-top:20px;">
+            获取验证码
+          </button>
+        </div>
+      </div>
+
+      <div class="bottom-content row">
+        <div class="col col-center" style="text-align:center">
+          <a class="button button-positive button-complete-{{isValidationForPhone()}}" style="width:60%;border-radius:40px;margin-top:38px;" class="completed-false" ui-sref="auth.log_04">
+              注册
+          </a>
+        </div>
+      </div>
+
     </div>
 
   </ion-content>

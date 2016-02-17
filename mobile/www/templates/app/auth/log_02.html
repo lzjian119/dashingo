@@ -3,44 +3,43 @@
           box-shadow: none !important;
           margin-top: 15%;">
 
-  <ion-nav-title>
-    <span>设置</span>
-  </ion-nav-title>
+    <ion-nav-title>
+      <span>登陆</span>
+    </ion-nav-title>
 
-  <ion-content scroll="false">
+    <ion-nav-buttons side="right">
+      <a href="#/auth/log_03" class="button button-clear">注册</a>
+    </ion-nav-buttons>
 
-    <div class="content has-tabs-top">
-      <div class="col col col-80 col-offset-10">
-          <label class="item item-input">
-            <img src="img/mobile.png" style="width:10px">
-            <input type="text" placeholder="输入手机号" style="margin-left:15px;height:48px">
-          </label>
-          <label class="item item-input" style="margin-top:25px;">
-              <img src="img/password.png" style="width:10px">
-            <input type="password" placeholder="设置一个密码" style="margin-left:15px;height:48px">
-          </label>
-      </div>
-        <div class="row">
-          <div class="col col-60 col-offset-10">
-            <label class="item item-input" style="margin-top:20px;">
-              <input type="number" placeholder="验证码" style="height:48px">
+    <style>
+      a.button-complete-false{
+        background-color:#d8d8d8 !important;
+      }
+    </style>
+
+    <ion-content scroll="false">
+
+      <div class="content has-tabs-top">
+
+        <div class="col col col-80 col-offset-10">
+            <label class="item item-input" style="border-radius:5px">
+              <img src="img/mobile.png" style="width:10px">
+              <input type="text" placeholder="手机号" style="margin-left:15px;height:48px" ng-model="user.userAccount">
             </label>
-          </div>
-
-          <div class="col col-30">
-            <button class="button button-clear button-positive" style="margin-top:20px;">
-              获取验证码
-            </button>
-          </div>
+            <label class="item item-input" style="margin-top:25px;border-radius:5px">
+              <img src="img/password.png" style="width:10px" >
+              <input type="password" placeholder="密码" style="margin-left:15px;height:48px" ng-model="user.userPassword">
+            </label>
         </div>
 
         <div class="bottom-content row">
           <div class="col col-center" style="text-align:center">
-            <a class="button" style="background-image:url(img/logup_off.png);background-repeat: no-repeat;background-size:contain;margin-top:20px;width:250px;background-color:transparent" ui-sref="auth.log_03">
+            <a class="button button-positive button-complete-{{validate()}}" style="width:60%;border-radius:40px;margin-top:38px;" class="completed-false" ui-sref="app.tab.home">
+                登陆
             </a>
           </div>
         </div>
-    </div>
+      </div>
 
-  </ion-content>
+    </ion-content>
 </ion-view>

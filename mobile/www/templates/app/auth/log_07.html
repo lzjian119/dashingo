@@ -7,6 +7,12 @@
     <span>体型</span>
   </ion-nav-title>
 
+  <style>
+    a.button-complete-false{
+      background-color:#d8d8d8 !important;
+    }
+  </style>
+
   <ion-content scroll="false">
 
     <div class="row">
@@ -27,7 +33,7 @@
               身高
             </div>
             <div class="col col-50">
-              <input type="number" placeholder="" style="height:48px;margin-top:-5px">
+              <input type="number" placeholder="" style="height:48px;margin-top:-5px" ng-model="signUp.height">
             </div>
             <div class="col col-25">
               cm
@@ -39,7 +45,7 @@
               体重
             </div>
             <div class="col col-50">
-              <input type="number" placeholder="" style="height:48px;margin-top:-5px;border:0px">
+              <input type="number" placeholder="" style="height:48px;margin-top:-5px;border:0px" ng-model="signUp.weight">
             </div>
             <div class="col col-25">
               kg
@@ -48,7 +54,7 @@
 
           <div class="bottom-content row">
             <div class="col col-center" style="text-align:center">
-              <a class="button button-positive" style="width:80%;border-radius:40px;background-color:#d8d8d8" class="completed-false" ui-sref="app.tab.home">
+              <a class="button button-positive button-complete-{{isShapeValidate()}}" style="width:80%;border-radius:40px;" class="completed-false" ng-click="completeSignUp()">
                   完成
               </a>
             </div>
